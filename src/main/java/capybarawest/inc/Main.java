@@ -13,7 +13,13 @@ public class Main {
         map = new String[size][size];
         for (int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                map[i][j] = "0";
+                if(i == 0)
+                {
+                    map[0][j] = "W";
+                }
+                else{
+                    map[i][j] = "0";
+                }
             }
         }
     }

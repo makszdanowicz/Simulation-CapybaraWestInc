@@ -11,6 +11,16 @@ public class Dog extends Capybara implements Attack{
     }
 
     @Override
+    public double eat(double fruit) {
+        return super.eat(fruit);
+    }
+
+    @Override
+    public void move(int speed) {
+        super.move(speed);
+    }
+
+    @Override
     public void setDamage(int damage) {
         this.attackPower = damage;
     }

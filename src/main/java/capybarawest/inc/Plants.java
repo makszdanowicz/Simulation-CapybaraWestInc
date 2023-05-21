@@ -14,5 +14,10 @@ public abstract class Plants {
         this.koordynata_ox = koordynata_ox;
         this.koordynata_oy = koordynata_oy;
     }
+
+    public double getDamege(double damage)
+    {
+        return this.hp - damage;
+    }
 }
 

@@ -3,7 +3,7 @@ package capybarawest.inc;
 import java.util.Scanner;
 
 public class Main {
-    private String[][] map;
+    /* private String[][] map;
     private int size;
 
     public Main(int size){
@@ -31,14 +31,19 @@ public class Main {
             System.out.println(" ");
         }
     }
+     */
     public static void main(String[] args) {
         int size;
+        int tree_percentage;
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj rozmiar mapy(liczba wierszy i liczba kolumn): ");
         size = scan.nextInt();
-        Main object = new Main(size);
-        object.map_initialization();
-        object.print_map();
+        System.out.println("Podaj ilość drzew(w procentach od 0 do 100): ");
+        tree_percentage = scan.nextInt();
+        Simulation symulacja = new Simulation(size, tree_percentage);
+        //Main object = new Main(size);
+        symulacja.map_initialization();
+        symulacja.print_map();
     }
 
 }

@@ -1,7 +1,7 @@
 package capybarawest.inc;
 
-public abstract class Capybara implements Attack{
-    private int attackPower = 0;
+public abstract class Capybara implements IAnimal{
+    //private int attackPower = 0;
 
     protected double hp;
     protected int koordynata_ox;
@@ -27,6 +27,16 @@ public abstract class Capybara implements Attack{
     }
 
     @Override
+    public double eat(double fruit) {
+        return this.hp+fruit;
+    }
+
+    @Override
+    public void move(int speed) {
+
+    }
+    /*
+    @Override
     public void setDamage(int damage) {
         this.attackPower = damage;
     }
@@ -35,4 +45,6 @@ public abstract class Capybara implements Attack{
     public double getDamage() {
         return attackPower;
     }
+
+ */
 }

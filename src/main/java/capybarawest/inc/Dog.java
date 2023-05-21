@@ -1,6 +1,6 @@
 package capybarawest.inc;
 
-public class Dog extends Animal implements Attack{
+public class Dog extends Capybara implements Attack{
     private int attackPower = 0;
     public Dog(){
         super();

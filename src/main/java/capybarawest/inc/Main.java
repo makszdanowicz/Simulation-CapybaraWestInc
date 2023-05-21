@@ -28,7 +28,7 @@ public class Main {
     public static void main(String[] args) {
         int size;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Podaj rozmiar mapy: ");
+        System.out.println("Podaj rozmiar mapy(liczba wierszy i liczba kolumn): ");
         size = scan.nextInt();
         Main object = new Main(size);
         object.map_initialization();

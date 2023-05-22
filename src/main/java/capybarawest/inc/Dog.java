@@ -21,8 +21,8 @@ public class Dog extends Capybara implements Attack{
     }
 
     @Override
-    public void setDamage(int damage) {
-        this.attackPower = damage;
+    public void setDamage(int damagetoCapy) {
+        this.attackPower = damagetoCapy;
     }
 
     @Override

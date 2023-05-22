@@ -33,7 +33,7 @@ public abstract class Capybara implements IAnimal{
 
     @Override
     public void move(int speed) {
-
+        //uzupelnimy w przyszlosci tresc tej metody
     }
     /*
     @Override

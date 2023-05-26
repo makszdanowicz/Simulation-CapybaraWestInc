@@ -34,7 +34,16 @@ public class Simulation {
     public void print_map(){
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                System.out.print(map[i][j] + " ");
+                if(map[i][j] == "W"){
+                    System.out.print(ColorClass.BLUE_BOLD + map[i][j] + " ");
+                }
+                else if(map[i][j] == "T"){
+                    System.out.print(ColorClass.GREEN_BOLD + map[i][j] + " ");
+                }
+                else{
+                    System.out.print(ColorClass.WHITE + map[i][j] + " ");
+                }
+                //System.out.print(map[i][j] + " ");
             }
             System.out.println(" ");
         }

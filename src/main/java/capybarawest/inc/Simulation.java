@@ -23,12 +23,18 @@ public class Simulation {
         this.liczba_krzaków = liczba_krzaków;
         this.liczba_kapibar = liczba_kapibar;
         this.liczba_psów = liczba_psów;
+        int max_obiekty = (size * (size - 1)); // maksymalna liczba obiektów na mapie (bez pierwszego wiersza)
+        int suma_obiekty = liczba_drzew + liczba_krzaków + liczba_kapibar + liczba_psów; // suma liczby obiektów
+
+        if (suma_obiekty > max_obiekty) {
+            System.out.println("Błąd: Liczba obiektów przekracza dostępną ilość miejsc na mapie.");
+            System.out.println("Spróbuj ponownie z mniejszą liczbą obiektów lub większą mapą.");
+            System.exit(0);
+        }
     }
 
     public void map_initialization() {
         map = new String[size][size];
-        Random rand = new Random();
-        int tree_counter = 0, bush_counter = 0, capybara_counter = 0, dog_counter = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i == 0) {

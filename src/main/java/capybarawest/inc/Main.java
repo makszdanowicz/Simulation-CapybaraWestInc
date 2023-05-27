@@ -5,26 +5,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         int size;
-        int tree_percentage;
-        int bush_persentage;
-        int capybara_persentage;
-        int dog_persentage;
+        int liczba_drzew;
+        int liczba_krzaków;
+        int liczba_kapibar;
+        int liczba_psów;
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj rozmiar mapy(liczba wierszy i liczba kolumn): ");
         size = scan.nextInt();
-        System.out.println("Podaj ilość drzew(w procentach od 0 do 100): ");
-        tree_percentage = scan.nextInt();
-        System.out.println("Podaj ilość krzaków(w procentach od 0 do " + (100-tree_percentage) + "): ");
-        bush_persentage = scan.nextInt();
-        System.out.println("Podaj ilość kapibar(w procentach od 0 do " + (100 - tree_percentage - bush_persentage) + "): ");
-        capybara_persentage = scan.nextInt();
-        System.out.println("Podaj ilość psów(w procentach od 0 do " + (100 - tree_percentage - bush_persentage - capybara_persentage) + "): ");
-        dog_persentage = scan.nextInt();
-        Simulation symulacja = new Simulation(size, tree_percentage, bush_persentage, capybara_persentage, dog_persentage);
+        System.out.println("Podaj ilość drzew: ");
+        liczba_drzew = scan.nextInt();
+        System.out.println("Podaj ilość krzaków: ");
+        liczba_krzaków = scan.nextInt();
+        System.out.println("Podaj ilość kapibar: ");
+        liczba_kapibar = scan.nextInt();
+        System.out.println("Podaj ilość psów: ");
+        liczba_psów = scan.nextInt();
+        Simulation symulacja = new Simulation(size, liczba_drzew, liczba_krzaków, liczba_kapibar, liczba_psów);
         //Main object = new Main(size);
-        symulacja.map_initialization();
+       // symulacja.map_initialization();
         symulacja.print_map();
-        //dupa
     }
 
 }

@@ -6,21 +6,21 @@ import java.util.Random;
 
 public class Simulation {
     private int size;
-    private int tree_persentage;
-    private int bush_persentage;
-    private int capybara_persentage;
-    private int dog_persentage;
+    private int liczba_drzew;
+    private int liczba_krzaków;
+    private int liczba_kapibar;
+    private int liczba_psów;
     private String[][] map;
     //Map<Integer, Capybara> capybaraMap = new HashMap<>();
     //Map<Integer, Dog> dogMap = new HashMap<>();
     Map<Integer, Tree> treeMap = new HashMap<>();
    // Map<Integer, Bush> bushMap = new HashMap<>();
-    public Simulation(int size, int tree_persentage, int bush_persentage, int capybara_persentage, int dog_persentage){
+    public Simulation(int size, int liczba_drzew, int liczba_krzaków, int liczba_kapibar, int liczba_psów){
         this.size = size;
-        this.tree_persentage = tree_persentage;
-        this.bush_persentage = bush_persentage;
-        this.capybara_persentage = capybara_persentage;
-        this.dog_persentage = dog_persentage;
+        this.liczba_drzew = liczba_drzew;
+        this.liczba_krzaków = liczba_krzaków;
+        this.liczba_kapibar = liczba_kapibar;
+        this.liczba_psów = liczba_psów;
     }
     public void map_initialization(){
         map = new String[size][size];
@@ -30,7 +30,18 @@ public class Simulation {
             for (int j = 0; j < size; j++) {
                 if (i == 0) {
                     map[0][j] = "W";
-                } else {
+                }
+                else if (i == 1){
+                    for (int k = 0; k < liczba_drzew; k++){
+                        int x = (int)(Math.random() * size);
+                        int y = (int)(Math.random() * size);
+                        map[x][y] = "T";
+                    }
+                }
+            }
+        }
+    }
+                /*else {
                     int random = rand.nextInt(101);
                     if (random <= tree_persentage) {
                         map[i][j] = "T";
@@ -87,7 +98,7 @@ public class Simulation {
         System.out.println("ilosc krzakow - " + bush_counter);
         System.out.println("ilosc kapibar - " + capybara_counter);
         System.out.println("ilosc psow - " + dog_counter);
-    }
+    }*/
     public void print_map(){
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){

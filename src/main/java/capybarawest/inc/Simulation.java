@@ -8,15 +8,19 @@ public class Simulation {
     private int size;
     private int tree_persentage;
     private int bush_persentage;
+    private int capybara_persentage;
+    private int dog_persentage;
     private String[][] map;
     //Map<Integer, Capybara> capybaraMap = new HashMap<>();
     //Map<Integer, Dog> dogMap = new HashMap<>();
     Map<Integer, Tree> treeMap = new HashMap<>();
    // Map<Integer, Bush> bushMap = new HashMap<>();
-    public Simulation(int size, int tree_persentage, int bush_persentage){
+    public Simulation(int size, int tree_persentage, int bush_persentage, int capybara_persentage, int dog_persentage){
         this.size = size;
         this.tree_persentage = tree_persentage;
         this.bush_persentage = bush_persentage;
+        this.capybara_persentage = capybara_persentage;
+        this.dog_persentage = dog_persentage;
     }
     public void map_initialization(){
         map = new String[size][size];
@@ -49,6 +53,32 @@ public class Simulation {
                     }
                 }
             }
+        for (int i = 1; i < size; i++){
+            for(int j = 0; j < size; j++){
+                if(map[i][j] == "0"){
+                    int random2= rand.nextInt(101);
+                    if(random2 <= capybara_persentage){
+                        map[i][j] = "C";
+                    }
+                    else{
+                        map[i][j] = "0";
+                    }
+                }
+            }
+        }
+        for (int i = 1; i < size; i++){
+            for(int j = 0; j < size; j++){
+                if(map[i][j] == "0"){
+                    int random3= rand.nextInt(101);
+                    if(random3 <= capybara_persentage){
+                        map[i][j] = "D";
+                    }
+                    else{
+                        map[i][j] = "0";
+                    }
+                }
+            }
+        }
     }
     public void print_map(){
         for(int i = 0; i < size; i++){
@@ -60,10 +90,16 @@ public class Simulation {
                     System.out.print(ColorClass.GREEN_BOLD + map[i][j] + " ");
                 }
                 else if (map[i][j] == "B"){
-                    System.out.print(ColorClass.PURPLE_BOLD + map[i][j] + " ");
+                    System.out.print(ColorClass.GREENBUSH_BOLD + map[i][j] + " ");
+                }
+                else if (map[i][j] == "C"){
+                    System.out.print(ColorClass.ORANGE_BOLD + map[i][j] + " ");
+                }
+                else if (map[i][j] == "D"){
+                    System.out.print(ColorClass.WHITE_BOLD + map[i][j] + " ");
                 }
                 else{
-                    System.out.print(ColorClass.WHITE + map[i][j] + " ");
+                    System.out.print(ColorClass.BLACK_BOLD + map[i][j] + " ");
                 }
                 //System.out.print(map[i][j] + " ");
             }

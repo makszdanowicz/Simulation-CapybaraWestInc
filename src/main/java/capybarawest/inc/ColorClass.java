@@ -22,6 +22,8 @@ public class ColorClass {
     public static final String PURPLE_BOLD = "\033[1;35m"; // PURPLE
     public static final String CYAN_BOLD = "\033[1;36m";   // CYAN
     public static final String WHITE_BOLD = "\033[1;37m";  // WHITE
+    public static final String ORANGE_BOLD = "\033[38;5;208m";  // ORANGE
+    public static final String GREENBUSH_BOLD = "\033[38;5;156m";  // GREENBUSH
 
     // Underline
     public static final String BLACK_UNDERLINED = "\033[4;30m";  // BLACK

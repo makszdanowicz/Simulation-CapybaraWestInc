@@ -25,6 +25,7 @@ public class Simulation {
     public void map_initialization(){
         map = new String[size][size];
         Random rand = new Random();
+        int tree_counter = 0, bush_counter = 0, capybara_counter = 0, dog_counter = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i == 0) {
@@ -33,7 +34,7 @@ public class Simulation {
                     int random = rand.nextInt(101);
                     if (random <= tree_persentage) {
                         map[i][j] = "T";
-
+                        tree_counter++;
                     } else {
                         map[i][j] = "0";
                     }
@@ -46,6 +47,7 @@ public class Simulation {
                         int random1 = rand.nextInt(101);
                         if(random1 <= bush_persentage){
                             map[i][j] = "B";
+                            bush_counter++;
                         }
                         else{
                             map[i][j] = "0";
@@ -59,6 +61,7 @@ public class Simulation {
                     int random2= rand.nextInt(101);
                     if(random2 <= capybara_persentage){
                         map[i][j] = "C";
+                        capybara_counter++;
                     }
                     else{
                         map[i][j] = "0";
@@ -72,6 +75,7 @@ public class Simulation {
                     int random3= rand.nextInt(101);
                     if(random3 <= capybara_persentage){
                         map[i][j] = "D";
+                        dog_counter++;
                     }
                     else{
                         map[i][j] = "0";
@@ -79,6 +83,10 @@ public class Simulation {
                 }
             }
         }
+        System.out.println("Wygenerowane: ilosc drzew - " + tree_counter);
+        System.out.println("ilosc krzakow - " + bush_counter);
+        System.out.println("ilosc kapibar - " + capybara_counter);
+        System.out.println("ilosc psow - " + dog_counter);
     }
     public void print_map(){
         for(int i = 0; i < size; i++){

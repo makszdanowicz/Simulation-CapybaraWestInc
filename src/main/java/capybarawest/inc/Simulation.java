@@ -24,6 +24,44 @@ public class Simulation {
     }
     public void map_initialization(){
         map = new String[size][size];
+        int tree_counter = 0, bush_counter = 0, capybara_counter = 0, dog_counter = 0;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i == 0) {
+                    map[0][j] = "W";
+                }
+                else {
+                    map[i][j] = "0";
+                }
+            }
+        }
+        public void setRandomlyObject(int amount_of_objects){
+            Random rand = new Random();
+            int randOX;
+            int randOY;
+            for(int i = 0; i < amount_of_objects; i++){
+                randOX = rand.nextInt((size*size) + 1);
+                randOY = rand.nextInt((size*size) + 1);
+                if (map[randOX][randOY] != "0") {
+                    map[randOX][randOY] = "typ obiektu";
+                }
+                else{
+                    while(map[randOX][randOY] != "0")
+                    {
+                        randOX = rand.nextInt((size*size) + 1);
+                        randOY = rand.nextInt((size*size) + 1);
+                        //!!!!!! trzeba wpisac cos typu i ++;
+                        // скорее всего нужно будет добавить отдельный класс мапа с полями координат и с отдельным функциями
+                        //чтобы рандомно расставить объекты на карте + шоу мап
+                    }
+                }
+
+
+            }
+        }
+    }
+    /*public void map_initialization(){
+        map = new String[size][size];
         Random rand = new Random();
         int tree_counter = 0, bush_counter = 0, capybara_counter = 0, dog_counter = 0;
         for (int i = 0; i < size; i++) {
@@ -115,5 +153,5 @@ public class Simulation {
         }
         System.out.println("Dupaaa");
     }
-
+   */
 }

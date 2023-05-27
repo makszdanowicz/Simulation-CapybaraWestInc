@@ -21,8 +21,11 @@ public class Main {
         System.out.println("Podaj ilość psów: ");
         liczba_psów = scan.nextInt();
         Simulation symulacja = new Simulation(size, liczba_drzew, liczba_krzaków, liczba_kapibar, liczba_psów);
-        //Main object = new Main(size);
-       // symulacja.map_initialization();
+       symulacja.map_initialization();
+       symulacja.umieśćDrzewa();
+       symulacja.umieśćKrzaki();
+       symulacja.umieśćKapibar();
+       symulacja.umieśćPsów();
         symulacja.print_map();
     }
 

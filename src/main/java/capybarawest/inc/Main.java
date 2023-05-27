@@ -24,6 +24,7 @@ public class Main {
         //Main object = new Main(size);
         symulacja.map_initialization();
         symulacja.print_map();
+        //dupa
     }
 
 }

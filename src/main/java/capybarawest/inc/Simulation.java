@@ -1,36 +1,4 @@
 package capybarawest.inc;
-
-<<<<<<< HEAD
-public class Simulation {
-    private int size;
-    private String[][] map;
-    public Simulation(int size){
-        this.size = size;
-    }
-    public void map_initialization(){
-        map = new String[size][size];
-        for(int i = 0; i < size; i++)
-        {
-            for(int j = 0; j < size; j++)
-            {
-                if(i == 0)
-                {
-                    map[0][j] = "W"; // W - to jest woda
-                }
-                else
-                {
-                    map[i][j] = "X";//X - to sa puste klatki mapy
-                }
-            }
-        }
-    }
-    public void print_map(){
-        for(int i = 0; i < size; i++)
-        {
-            for(int j = 0; j < size; j++)
-            {
-                System.out.print(map[i][j] + " ");
-=======
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -131,13 +99,9 @@ public class Simulation {
                 } else {
                     System.out.print(ColorClass.BLACK_BOLD + map[i][j] + " ");
                 }
->>>>>>> justyna_test
             }
             System.out.println(" ");
         }
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> justyna_test

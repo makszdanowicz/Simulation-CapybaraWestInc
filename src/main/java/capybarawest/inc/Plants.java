@@ -15,12 +15,7 @@ public abstract class Plants {
         this.koordynata_oy = koordynata_oy;
     }
 
-<<<<<<< HEAD
     public double getDamage(double damage){
-=======
-    public double getDamege(double damage)
-    {
->>>>>>> justyna_test
         return this.hp - damage;
     }
 }

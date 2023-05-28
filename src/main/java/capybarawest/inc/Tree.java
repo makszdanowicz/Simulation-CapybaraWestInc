@@ -12,4 +12,9 @@ public class Tree extends Plants{
     public double getDamage(double damage) {
         return super.getDamage(damage);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

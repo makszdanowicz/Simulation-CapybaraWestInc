@@ -1,5 +1,5 @@
 package capybarawest.inc;
-public class Dog extends Capybara implements Attack,IAnimal{
+public class Dog extends Animal implements Attack,IAnimal{
 
     private int attackPower = 0;
     public Dog(){
@@ -28,5 +28,10 @@ public class Dog extends Capybara implements Attack,IAnimal{
     @Override
     public void move(int speed) {
         super.move(speed);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

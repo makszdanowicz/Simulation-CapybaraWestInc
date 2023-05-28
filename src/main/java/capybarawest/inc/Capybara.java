@@ -1,6 +1,6 @@
 package capybarawest.inc;
 
-public abstract class Capybara implements IAnimal{
+public class Capybara extends Animal implements IAnimal{
     //private int attackPower = 0;
 
     protected double hp;
@@ -9,35 +9,28 @@ public abstract class Capybara implements IAnimal{
     protected int speed;
     protected int damage;
 
-    public Capybara()
-    {
-        this.hp = -1111111;
-        this.koordynata_ox = -1111111;
-        this.koordynata_oy = -1111111;
-        this.speed = -1111111;
-        this.damage = -1111111;
+    public Capybara() {
+       super();
     }
 
-    public Capybara(double hp, int koordynata_ox, int koordynata_oy, int speed, int damage){
-        this.hp = hp;
-        this.koordynata_ox = koordynata_ox;
-        this.koordynata_oy = koordynata_oy;
-        this.speed = speed;
-        this.damage = damage;
-    }
-
-    @Override
-    public double eat(double fruit) {
-        return this.hp+fruit;
+    public Capybara(double hp, int koordynata_ox, int koordynata_oy, int speed, int damage) {
+        super(hp, koordynata_ox, koordynata_oy, speed, damage);
     }
 
     @Override
     public void move(int speed) {
+        super.move(speed);
     }
 
+    @Override
+    public double eat(double fruit) {
+        return super.eat(fruit);
+    }
 
-
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
     /*
     @Override

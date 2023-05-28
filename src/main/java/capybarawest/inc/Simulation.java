@@ -10,11 +10,11 @@ public class Simulation {
     private int liczba_kapibar;
     private int liczba_psów;
     private String[][] map;
-    //Map<Integer, Capybara> capybaraMap = new HashMap<>();
-    //Map<Integer, Dog> dogMap = new HashMap<>();
     Map<Integer, Tree> treeMap = new HashMap<>();
 
-    // Map<Integer, Bush> bushMap = new HashMap<>();
+    Map<Integer, Bush> bushMap = new HashMap<>();
+    Map<Integer, Capybara> capybaraMap = new HashMap<>();
+    Map<Integer, Dog> dogMap = new HashMap<>();
     public Simulation(int size, int liczba_drzew, int liczba_krzaków, int liczba_kapibar, int liczba_psów) {
         map = new String[size][size];
         this.size = size;
@@ -44,6 +44,7 @@ public class Simulation {
     }
 
     public void umieśćDrzewa() {
+        int index_drzewa = 0;
         for (int k = 0; k < liczba_drzew; k++) {
             int x, y;
             do{
@@ -51,9 +52,18 @@ public class Simulation {
                 y = (int) (Math.random() * size);
             } while (map[x][y] == "T");
             map[x][y] = "T";
+            Tree tree = new Tree(50, x, y);
+            index_drzewa++;
+            treeMap.put(index_drzewa, tree);
+        }
+        for (Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
+            Integer key = entry.getKey();
+            Tree value = entry.getValue();
+            System.out.println("Drzewo nr " + key + ":" + value);
         }
     }
     public void umieśćKrzaki(){
+        int index_krzaka = 0;
         for(int k = 0; k < liczba_krzaków; k++){
             int x,y;
             do{
@@ -61,9 +71,18 @@ public class Simulation {
                 y = (int)(Math.random() * size);
             } while (map[x][y] == "T" || map[x][y] == "B");
             map[x][y] = "B";
+            Bush krzak = new Bush(30, x, y);
+            index_krzaka++;
+            bushMap.put(index_krzaka, krzak);
+        }
+        for (Map.Entry<Integer, Bush> entry : bushMap.entrySet()){
+            Integer key = entry.getKey();
+            Bush value = entry.getValue();
+            System.out.println("Krzak nr " + key + ":" + value);
         }
     }
     public void umieśćKapibar(){
+        int index_kapibar = 0;
         for(int k = 0; k < liczba_kapibar; k++){
             int x,y;
             do{
@@ -71,9 +90,18 @@ public class Simulation {
                 y = (int)(Math.random() * size);
             } while (map[x][y] == "T" || map[x][y] == "B" || map[x][y] == "C");
             map[x][y] = "C";
+            Capybara kapibara = new Capybara(100, x, y, 3, 5);
+            index_kapibar++;
+            capybaraMap.put(index_kapibar, kapibara);
+        }
+        for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet()){
+            Integer key = entry.getKey();
+            Capybara value = entry.getValue();
+            System.out.println("Kapibara nr " + key + ":" + value);
         }
     }
     public void umieśćPsów(){
+        int index_psów = 0;
         for(int k = 0; k < liczba_psów; k++){
             int x,y;
             do{
@@ -81,6 +109,14 @@ public class Simulation {
                 y = (int)(Math.random() * size);
             } while (map[x][y] == "T" || map[x][y] == "B" || map[x][y] == "C" || map[x][y] == "D" );
             map[x][y] = "D";
+            Dog pies = new Dog(100, x, y, 1, 5);
+            index_psów++;
+            dogMap.put(index_psów, pies);
+        }
+        for(Map.Entry<Integer, Dog> entry : dogMap.entrySet()){
+            Integer key = entry.getKey();
+            Dog value = entry.getValue();
+            System.out.println("Pies nr " + key + ":" + value);
         }
     }
     public void print_map() {

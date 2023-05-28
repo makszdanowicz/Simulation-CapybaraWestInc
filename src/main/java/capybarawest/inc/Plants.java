@@ -18,5 +18,10 @@ public abstract class Plants {
     public double getDamage(double damage){
         return this.hp - damage;
     }
+
+    @Override
+    public String toString() {
+        return this.hp + " " + this.koordynata_ox + " " + this.koordynata_oy + "\n";
+    }
 }
 

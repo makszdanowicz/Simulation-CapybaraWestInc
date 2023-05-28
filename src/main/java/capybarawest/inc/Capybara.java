@@ -33,7 +33,11 @@ public abstract class Capybara implements IAnimal{
 
     @Override
     public void move(int speed) {
+<<<<<<< HEAD
         //uzupelnimy w przyszlosci tresc tej metody
+=======
+
+>>>>>>> justyna_test
     }
     /*
     @Override
@@ -46,5 +50,9 @@ public abstract class Capybara implements IAnimal{
         return attackPower;
     }
 
+<<<<<<< HEAD
      */
+=======
+ */
+>>>>>>> justyna_test
 }

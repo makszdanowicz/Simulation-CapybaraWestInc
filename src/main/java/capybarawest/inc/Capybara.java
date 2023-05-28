@@ -33,7 +33,21 @@ public abstract class Capybara implements IAnimal{
 
     @Override
     public void move(int speed) {
-        //uzupelnimy w przyszlosci w trakcie działania juz symulacji
     }
 
+
+
+
 }
+    /*
+    @Override
+    public void setDamage(int damage) {
+        this.attackPower = damage;
+    }
+
+    @Override
+    public double getDamage() {
+        return attackPower;
+    }
+
+     */

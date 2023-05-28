@@ -7,4 +7,9 @@ public class Bush extends Plants{
     public Bush( double hp, int koordynata_ox, int koordynata_oy){
         super(hp, koordynata_ox, koordynata_oy);
     }
+
+    @Override
+    public double getDamege(double damage) {
+        return super.getDamege(damage);
+    }
 }

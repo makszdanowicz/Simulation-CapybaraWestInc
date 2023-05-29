@@ -1,0 +1,194 @@
+[33mcommit f44b41e9515508ca6bb87ac34fb2f3523b601f72[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/collection_test[m[33m, [m[1;32mcollection_test[m[33m)[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 28 18:01:08 2023 +0200
+
+    maps
+
+[33mcommit 771b7a81f53166e331e91c9928d94f65003aae67[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 7b6a6f3 227c791
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 28 16:56:45 2023 +0200
+
+    .
+
+[33mcommit 227c7918ce0dc6844e1fa6a927b4d327eacc67db[m
+Merge: 435fa0a ece2843
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sun May 28 16:50:22 2023 +0200
+
+    Fixed all errors
+
+[33mcommit 7b6a6f3e0d8cd85e089047593468e84d745bad37[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 28 16:42:19 2023 +0200
+
+    .
+
+[33mcommit ece28430ac62c395d57756220f3fea5d7a99ed24[m
+Merge: 5eaa57a 836ed54
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 28 16:37:28 2023 +0200
+
+    merging
+
+[33mcommit 836ed540ecdb8295ce1b9da554ccd20584a7e5df[m[33m ([m[1;31morigin/justyna_test[m[33m, [m[1;32mjustyna_test[m[33m)[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 27 20:23:08 2023 +0200
+
+    added error if objects>map
+
+[33mcommit abca21cac269e884af29dc05904123bf9c6cd937[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 27 19:14:53 2023 +0200
+
+    normal ass bitch map<3
+
+[33mcommit 70cceadd4561966abde52accc645f7edcd7c51d8[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 27 17:27:13 2023 +0200
+
+    1.0
+
+[33mcommit d14231ccfc6fb96a6f85de9e49d47a6cedc855ff[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 27 17:01:09 2023 +0200
+
+    justyna branch
+
+[33mcommit a27c5556f3e1714ce4591edd5aea07912897c002[m[33m ([m[1;31morigin/test_map[m[33m)[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sat May 27 16:51:30 2023 +0200
+
+    added counters to check amount of generated objects
+
+[33mcommit 75449323d25a480280cd1a41eff4820a87f8998b[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 27 16:36:31 2023 +0200
+
+    added animals and plants to the MAp
+
+[33mcommit 6afcde42a9f161ad1dac6d90f17dcbd787a62870[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 27 15:44:21 2023 +0200
+
+    add bush
+
+[33mcommit f52b0539d2db4d5e99dad7a4e0d6fd886b4395a4[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Fri May 26 14:46:38 2023 +0200
+
+    first try to add colors for print map
+
+[33mcommit 435fa0ad9ee1b61fd4f75edcb682c7fbf8dd21a2[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Thu May 25 15:50:01 2023 +0200
+
+    added some tekst
+
+[33mcommit 5eaa57a6dce9e9d2cde0f3de2d054bd660e32069[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Mon May 22 23:01:38 2023 +0200
+
+    added class Simulation, updated interface Attack for Dog
+
+[33mcommit 039dccbfcb0773c40857297e81ec496e115841e4[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sun May 21 21:40:58 2023 +0200
+
+    added Interface for Animals and some Methods
+
+[33mcommit 480d634242c7bef666bac406643c7f965a5f92e0[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 21 21:28:52 2023 +0200
+
+    added class Simulation and some Interfaces
+
+[33mcommit dd65c5c3fcce9df9095aedaf7c0895f64ea43f46[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 21 18:41:02 2023 +0200
+
+    update test_map
+
+[33mcommit af4b8207b2cc099a5dc0665d3bf9e6c9a952c1cb[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sun May 21 18:32:11 2023 +0200
+
+    added Water to map initialization(test_map)
+
+[33mcommit cdb5deee17fa42a56d6823c7018c513b7ca5945f[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sun May 21 18:08:39 2023 +0200
+
+    added text
+
+[33mcommit 7e87d1624aafd9e9aa7a3c304152918e3a548f87[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sun May 21 18:04:54 2023 +0200
+
+    class Capybara switched to abstact and deleted abstact class Animal
+
+[33mcommit d4d33b9242dcccdb6ded048b2904aa7e9c49f089[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 13 19:55:31 2023 +0200
+
+    test: map initialization
+
+[33mcommit 746c02706e98abbb5f027dfdd5f7db703ae2b21a[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sat May 13 19:26:03 2023 +0200
+
+    added interface Attack for Animals
+
+[33mcommit 18afe95b3b0183d32e26eb9520f784136a20c5a9[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 13 19:03:56 2023 +0200
+
+    added class Bush
+
+[33mcommit ecfb7df877553da67b4628a0722268e4a51720b5[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sat May 13 18:16:41 2023 +0200
+
+    added class Dog
+
+[33mcommit 20081ede97c174589cdf9e02a66b385374ffce64[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 13 18:08:25 2023 +0200
+
+    added class Tree
+
+[33mcommit 0e0dbd9808f48988388dc4afd60396f15bb49a8b[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sat May 13 18:02:59 2023 +0200
+
+    added class Capybara
+
+[33mcommit 343a67559fd8e40310a85aeda882c0d2be970a57[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 13 17:57:49 2023 +0200
+
+    added abstract class Plants
+
+[33mcommit 975c49bcecf4a2c4c2893c3402d4efd72b557f54[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sat May 13 17:50:41 2023 +0200
+
+    Added abstarct class Animal
+
+[33mcommit d74af393e8996c5e42eba0d636f314b75ac3bb89[m
+Author: justyna <276587@student.pwr.edu.pl>
+Date:   Sat May 13 17:31:36 2023 +0200
+
+    added message from second developer
+
+[33mcommit b53f6200406dc952693ce2b693f2331056f30184[m
+Author: Maksym <116188896+makszdanowicz@users.noreply.github.com>
+Date:   Sat May 13 16:54:09 2023 +0200
+
+    Create README.md
+
+[33mcommit abe9e6f075432790f070e2e3d46f6dc661a57f41[m
+Author: makszdanowicz <273564@student.pwr.edu.pl>
+Date:   Sat May 13 16:05:04 2023 +0200
+
+    1.0 version of simulation

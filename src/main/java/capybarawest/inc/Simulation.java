@@ -121,28 +121,30 @@ public class Simulation {
     public void stworz_symulacje(){
         for(int i = 1; i < rozmiar; i++)
         {
-            for(int j = 0; j < rozmiar; j++)
+            for (int j = 0; j < rozmiar; j++)
             {
                 map[i][j] = "W";
             }
+            System.out.println(" ");
             for (int k = 0; k < rozmiar; k++) {
                 for (int n = 0; n < rozmiar; n++) {
                     if (map[k][n] == "W") {
-                        System.out.print(ColorClass.BLUE_BOLD + map[n][k] + " ");
+                        System.out.print(ColorClass.BLUE_BOLD + map[k][n] + " ");
                     } else if (map[k][n] == "T") {
-                        System.out.print(ColorClass.GREEN_BOLD + map[n][k] + " ");
+                        System.out.print(ColorClass.GREEN_BOLD + map[k][n] + " ");
                     } else if (map[k][n] == "B") {
-                        System.out.print(ColorClass.GREENBUSH_BOLD + map[n][k] + " ");
+                        System.out.print(ColorClass.GREENBUSH_BOLD + map[k][n] + " ");
                     } else if (map[k][n] == "C") {
-                        System.out.print(ColorClass.ORANGE_BOLD + map[n][k] + " ");
+                        System.out.print(ColorClass.ORANGE_BOLD + map[k][n] + " ");
                     } else if (map[k][n] == "D") {
-                        System.out.print(ColorClass.WHITE_BOLD + map[n][k] + " ");
+                        System.out.print(ColorClass.WHITE_BOLD + map[k][n] + " ");
                     } else {
-                        System.out.print(ColorClass.BLACK_BOLD + map[n][k] + " ");
+                        System.out.print(ColorClass.BLACK_BOLD + map[k][n] + " ");
                     }
                 }
                 System.out.println(" ");
             }
+            System.out.println(" ");
         }
     }
     public void wyswietl_mape() {

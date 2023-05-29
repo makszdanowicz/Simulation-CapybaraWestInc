@@ -26,7 +26,9 @@ public class Main {
         symulacja.umiescKrzaki();
         symulacja.umiescKapibar();
         symulacja.umiescPsow();
-        symulacja.print_map();
+        symulacja.wyswietl_mape();
+        symulacja.stworz_symulacje();
+
     }
 
 }

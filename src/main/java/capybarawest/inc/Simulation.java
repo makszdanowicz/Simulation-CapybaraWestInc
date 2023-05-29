@@ -118,7 +118,34 @@ public class Simulation {
             System.out.println("Pies nr " + key + ":" + value);
         }
     }
-    public void print_map() {
+    public void stworz_symulacje(){
+        for(int i = 1; i < rozmiar; i++)
+        {
+            for(int j = 0; j < rozmiar; j++)
+            {
+                map[i][j] = "W";
+            }
+            for (int k = 0; k < rozmiar; k++) {
+                for (int n = 0; n < rozmiar; n++) {
+                    if (map[k][n] == "W") {
+                        System.out.print(ColorClass.BLUE_BOLD + map[n][k] + " ");
+                    } else if (map[k][n] == "T") {
+                        System.out.print(ColorClass.GREEN_BOLD + map[n][k] + " ");
+                    } else if (map[k][n] == "B") {
+                        System.out.print(ColorClass.GREENBUSH_BOLD + map[n][k] + " ");
+                    } else if (map[k][n] == "C") {
+                        System.out.print(ColorClass.ORANGE_BOLD + map[n][k] + " ");
+                    } else if (map[k][n] == "D") {
+                        System.out.print(ColorClass.WHITE_BOLD + map[n][k] + " ");
+                    } else {
+                        System.out.print(ColorClass.BLACK_BOLD + map[n][k] + " ");
+                    }
+                }
+                System.out.println(" ");
+            }
+        }
+    }
+    public void wyswietl_mape() {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {
                 if (map[i][j] == "W") {

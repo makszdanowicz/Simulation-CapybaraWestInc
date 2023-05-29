@@ -6,25 +6,25 @@ public class Capybara extends Animal implements IAnimal{
     protected double hp;
     protected int koordynata_ox;
     protected int koordynata_oy;
-    protected int speed;
+    protected int predkosc;
     protected int damage;
 
     public Capybara() {
        super();
     }
 
-    public Capybara(double hp, int koordynata_ox, int koordynata_oy, int speed, int damage) {
-        super(hp, koordynata_ox, koordynata_oy, speed, damage);
+    public Capybara(double hp, int koordynata_ox, int koordynata_oy, int predkosc, int damage) {
+        super(hp, koordynata_ox, koordynata_oy, predkosc, damage);
     }
 
     @Override
-    public void move(int speed) {
-        super.move(speed);
+    public void move(int predkosc) {
+        super.move(predkosc);
     }
 
     @Override
-    public double eat(double fruit) {
-        return super.eat(fruit);
+    public double eat(double owoc) {
+        return super.eat(owoc);
     }
 
     @Override

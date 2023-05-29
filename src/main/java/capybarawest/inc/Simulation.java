@@ -1,29 +1,28 @@
 package capybarawest.inc;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Simulation {
-    private int size;
+    private int rozmiar;
     private int liczba_drzew;
-    private int liczba_krzaków;
+    private int liczba_krzakow;
     private int liczba_kapibar;
-    private int liczba_psów;
+    private int liczba_psow;
     private String[][] map;
     Map<Integer, Tree> treeMap = new HashMap<>();
 
     Map<Integer, Bush> bushMap = new HashMap<>();
     Map<Integer, Capybara> capybaraMap = new HashMap<>();
     Map<Integer, Dog> dogMap = new HashMap<>();
-    public Simulation(int size, int liczba_drzew, int liczba_krzaków, int liczba_kapibar, int liczba_psów) {
-        map = new String[size][size];
-        this.size = size;
+    public Simulation(int rozmiar, int liczba_drzew, int liczba_krzakow, int liczba_kapibar, int liczba_psow) {
+        map = new String[rozmiar][rozmiar];
+        this.rozmiar = rozmiar;
         this.liczba_drzew = liczba_drzew;
-        this.liczba_krzaków = liczba_krzaków;
+        this.liczba_krzakow = liczba_krzakow;
         this.liczba_kapibar = liczba_kapibar;
-        this.liczba_psów = liczba_psów;
-        int max_obiekty = (size * (size - 1)); // maksymalna liczba obiektów na mapie (bez pierwszego wiersza)
-        int suma_obiekty = liczba_drzew + liczba_krzaków + liczba_kapibar + liczba_psów; // suma liczby obiektów
+        this.liczba_psow = liczba_psow;
+        int max_obiekty = (rozmiar * (rozmiar - 1)); // maksymalna liczba obiektów na mapie (bez pierwszego wiersza)
+        int suma_obiekty = liczba_drzew + liczba_krzakow + liczba_kapibar + liczba_psow; // suma liczby obiektów
 
         if (suma_obiekty > max_obiekty) {
             System.out.println("Błąd: Liczba obiektów przekracza dostępną ilość miejsc na mapie.");
@@ -33,9 +32,9 @@ public class Simulation {
     }
 
     public void map_initialization() {
-        map = new String[size][size];
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        map = new String[rozmiar][rozmiar];
+        for (int i = 0; i < rozmiar; i++) {
+            for (int j = 0; j < rozmiar; j++) {
                 if (i == 0) {
                     map[0][j] = "W";
                 } else map[i][j] = "0";
@@ -43,18 +42,18 @@ public class Simulation {
         }
     }
 
-    public void umieśćDrzewa() {
-        int index_drzewa = 0;
+    public void umiescDrzewa() {
+        int indeks_drzewa = 0;
         for (int k = 0; k < liczba_drzew; k++) {
             int x, y;
             do{
-                x = (int) (Math.random() * (size - 1)) + 1;
-                y = (int) (Math.random() * size);
+                x = (int) (Math.random() * (rozmiar - 1)) + 1;
+                y = (int) (Math.random() * rozmiar);
             } while (map[x][y] == "T");
             map[x][y] = "T";
             Tree tree = new Tree(50, x, y);
-            index_drzewa++;
-            treeMap.put(index_drzewa, tree);
+            indeks_drzewa++;
+            treeMap.put(indeks_drzewa, tree);
         }
         for (Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
             Integer key = entry.getKey();
@@ -62,18 +61,18 @@ public class Simulation {
             System.out.println("Drzewo nr " + key + ":" + value);
         }
     }
-    public void umieśćKrzaki(){
-        int index_krzaka = 0;
-        for(int k = 0; k < liczba_krzaków; k++){
+    public void umiescKrzaki(){
+        int indeks_krzaka = 0;
+        for(int k = 0; k < liczba_krzakow; k++){
             int x,y;
             do{
-                x = (int)(Math.random() * (size - 1)) + 1;
-                y = (int)(Math.random() * size);
+                x = (int)(Math.random() * (rozmiar - 1)) + 1;
+                y = (int)(Math.random() * rozmiar);
             } while (map[x][y] == "T" || map[x][y] == "B");
             map[x][y] = "B";
             Bush krzak = new Bush(30, x, y);
-            index_krzaka++;
-            bushMap.put(index_krzaka, krzak);
+            indeks_krzaka++;
+            bushMap.put(indeks_krzaka, krzak);
         }
         for (Map.Entry<Integer, Bush> entry : bushMap.entrySet()){
             Integer key = entry.getKey();
@@ -81,18 +80,18 @@ public class Simulation {
             System.out.println("Krzak nr " + key + ":" + value);
         }
     }
-    public void umieśćKapibar(){
-        int index_kapibar = 0;
+    public void umiescKapibar(){
+        int indeks_kapibar = 0;
         for(int k = 0; k < liczba_kapibar; k++){
             int x,y;
             do{
-                x = (int)(Math.random() * (size - 1)) + 1;
-                y = (int)(Math.random() * size);
+                x = (int)(Math.random() * (rozmiar - 1)) + 1;
+                y = (int)(Math.random() * rozmiar);
             } while (map[x][y] == "T" || map[x][y] == "B" || map[x][y] == "C");
             map[x][y] = "C";
             Capybara kapibara = new Capybara(100, x, y, 3, 5);
-            index_kapibar++;
-            capybaraMap.put(index_kapibar, kapibara);
+            indeks_kapibar++;
+            capybaraMap.put(indeks_kapibar, kapibara);
         }
         for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet()){
             Integer key = entry.getKey();
@@ -100,18 +99,18 @@ public class Simulation {
             System.out.println("Kapibara nr " + key + ":" + value);
         }
     }
-    public void umieśćPsów(){
-        int index_psów = 0;
-        for(int k = 0; k < liczba_psów; k++){
+    public void umiescPsow(){
+        int indeks_psow = 0;
+        for(int k = 0; k < liczba_psow; k++){
             int x,y;
             do{
-                x = (int)(Math.random() * (size - 1)) + 1;
-                y = (int)(Math.random() * size);
+                x = (int)(Math.random() * (rozmiar - 1)) + 1;
+                y = (int)(Math.random() * rozmiar);
             } while (map[x][y] == "T" || map[x][y] == "B" || map[x][y] == "C" || map[x][y] == "D" );
             map[x][y] = "D";
             Dog pies = new Dog(100, x, y, 1, 5);
-            index_psów++;
-            dogMap.put(index_psów, pies);
+            indeks_psow++;
+            dogMap.put(indeks_psow, pies);
         }
         for(Map.Entry<Integer, Dog> entry : dogMap.entrySet()){
             Integer key = entry.getKey();
@@ -120,8 +119,8 @@ public class Simulation {
         }
     }
     public void print_map() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        for (int i = 0; i < rozmiar; i++) {
+            for (int j = 0; j < rozmiar; j++) {
                 if (map[i][j] == "W") {
                     System.out.print(ColorClass.BLUE_BOLD + map[i][j] + " ");
                 } else if (map[i][j] == "T") {

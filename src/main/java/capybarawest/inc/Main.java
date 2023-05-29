@@ -12,13 +12,13 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.println("Podaj rozmiar mapy(liczba wierszy i liczba kolumn): ");
         size = scan.nextInt();
-        System.out.println("Podaj ilość drzew: ");
+        System.out.println("Podaj ilosc drzew(mozesz stworzyc do " + ((size-1)*(size)) + " obiektow): ");
         liczba_drzew = scan.nextInt();
-        System.out.println("Podaj ilość krzaków: ");
+        System.out.println("Podaj ilosc krzaków(mozesz stworzyc do " + ((size-1)*(size)-liczba_drzew) + " obiektow): ");
         liczba_krzaków = scan.nextInt();
-        System.out.println("Podaj ilość kapibar: ");
+        System.out.println("Podaj ilosc kapibar(mozesz stworzyc do " + ((size-1)*(size)-liczba_drzew-liczba_krzaków) + " obiektow): ");
         liczba_kapibar = scan.nextInt();
-        System.out.println("Podaj ilość psów: ");
+        System.out.println("Podaj ilosc psow(mozesz stworzyc do " + ((size-1)*(size)-liczba_drzew-liczba_krzaków-liczba_kapibar) + " obiektow): ");
         liczba_psów = scan.nextInt();
         Simulation symulacja = new Simulation(size, liczba_drzew, liczba_krzaków, liczba_kapibar, liczba_psów);
         symulacja.map_initialization();

@@ -31,6 +31,16 @@ public class Dog extends Animal implements Attack,IAnimal{
     }
 
     @Override
+    public int getKoordynata_x() {
+        return this.koordynata_ox;
+    }
+
+    @Override
+    public int getKoordynata_y() {
+        return this.koordynata_oy;
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }

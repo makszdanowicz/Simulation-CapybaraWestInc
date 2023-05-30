@@ -123,9 +123,71 @@ public class Simulation {
         {
             for (int j = 0; j < rozmiar; j++)
             {
+                //Dzialanie symulacji
+                for (int a = 1; a < rozmiar; a++)
+                {
+                    for (int b = 0; b < rozmiar; b++)
+                    {
+                        if (map[a][b] == "C" || map[a][b] == "D") //sprawdzanie warunkow dla kapibary i psa
+                        {
+                            if ((a-1) > 0)
+                            {
+                                if (map[a-1][b] == "T")
+                                {
+                                    for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet())
+                                    { 
+                                        if (entry.getValue().getKoordynata_x().equals(a) && entry.getValue().getKoordynata_y().equals(b))
+                                        {
+                                            Capybara kapibara = entry.getValue();
+                                            kapibara.eat(5);
+                                        }
+                                    }
+                                }
+                                else if(map[a-1][b] == "B")
+                                {
+                                    // cos tam
+                                }
+                            }
+                            else if ((a+1) < rozmiar)
+                            {
+                                if (map[a+1][b] == "T")
+                                {
+                                    //cos tam cos tam
+                                }
+                                else if(map[a+1][b] == "B")
+                                {
+                                    //cos
+                                }
+                            }
+                            else if ((b-1) >= 0)
+                            {
+                                if (map[a][b-1] == "T")
+                                {
+                                    //cos tam cos tam
+                                }
+                                else if(map[a][b-1] == "B")
+                                {
+                                    //cos
+                                }
+                            }
+                            else if ((b+1) < rozmiar)
+                            {
+                                if (map[a][b+1] == "T")
+                                {
+                                    //cos tam cos tam
+                                }
+                                else if(map[a][b+1] == "B")
+                                {
+                                   //cos
+                                }
+                            }
+                        }
+                    }
+                }
                 map[i][j] = "W";
             }
             System.out.println(" ");
+            //Poetapne wyswietlenie mapy
             for (int k = 0; k < rozmiar; k++) {
                 for (int n = 0; n < rozmiar; n++) {
                     if (map[k][n] == "W") {

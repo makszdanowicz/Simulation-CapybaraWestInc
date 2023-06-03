@@ -187,6 +187,7 @@ public class Simulation {
                 map[i][j] = "W";
             }
             System.out.println(" ");
+
             //Poetapne wyswietlenie mapy
             for (int k = 0; k < rozmiar; k++) {
                 for (int n = 0; n < rozmiar; n++) {
@@ -209,6 +210,7 @@ public class Simulation {
             System.out.println(" ");
         }
     }
+    
     public void wyswietl_mape() {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {

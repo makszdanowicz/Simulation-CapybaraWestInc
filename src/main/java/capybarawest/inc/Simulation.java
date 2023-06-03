@@ -146,6 +146,13 @@ public class Simulation {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -156,6 +163,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(5);
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -167,6 +181,13 @@ public class Simulation {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -175,6 +196,13 @@ public class Simulation {
                                         for(Dog pies : dogMap.values()) {
                                             if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -191,6 +219,13 @@ public class Simulation {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -201,6 +236,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(5);
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -213,7 +255,14 @@ public class Simulation {
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
-                                                kapibara.eat(3);//5 - bo drzewo
+                                                kapibara.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -224,6 +273,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -240,6 +296,13 @@ public class Simulation {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -250,6 +313,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(5);
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -262,7 +332,14 @@ public class Simulation {
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
-                                                kapibara.eat(3);//5 - bo drzewo
+                                                kapibara.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -273,6 +350,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -289,6 +373,13 @@ public class Simulation {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -299,6 +390,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(5);
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()){
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                                drzewo.getDamage(5);
+                                                break;
                                             }
                                         }
                                     }
@@ -311,7 +409,14 @@ public class Simulation {
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
-                                                kapibara.eat(3);//5 - bo drzewo
+                                                kapibara.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -322,6 +427,13 @@ public class Simulation {
                                             if(pies.koordynata_ox == a && pies.koordynata_oy == b)
                                             {
                                                 pies.eat(3);
+                                                break;
+                                            }
+                                        }
+                                        for (Bush krzak : bushMap.values()){
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                                krzak.getDamage(3);
+                                                break;
                                             }
                                         }
                                     }
@@ -329,10 +441,12 @@ public class Simulation {
                             }
                         }
                     }
-                } 
+                }
                 map[i][j] = "W";
             }
             System.out.println(" ");
+
+            //Etapowe wyswietlenie mapy
             for (int k = 0; k < rozmiar; k++) {
                 for (int n = 0; n < rozmiar; n++) {
                     if (map[k][n] == "W") {

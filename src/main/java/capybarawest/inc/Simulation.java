@@ -14,6 +14,7 @@ public class Simulation {
     Map<Integer, Bush> bushMap = new HashMap<>();
     Map<Integer, Capybara> capybaraMap = new HashMap<>();
     Map<Integer, Dog> dogMap = new HashMap<>();
+
     public Simulation(int rozmiar, int liczba_drzew, int liczba_krzakow, int liczba_kapibar, int liczba_psow) {
         map = new String[rozmiar][rozmiar];
         this.rozmiar = rozmiar;
@@ -61,6 +62,7 @@ public class Simulation {
             System.out.println("Drzewo nr " + key + ":" + value);
         }
     }
+
     public void umiescKrzaki(){
         int indeks_krzaka = 0;
         for(int k = 0; k < liczba_krzakow; k++){
@@ -80,6 +82,7 @@ public class Simulation {
             System.out.println("Krzak nr " + key + ":" + value);
         }
     }
+
     public void umiescKapibar(){
         int indeks_kapibar = 0;
         for(int k = 0; k < liczba_kapibar; k++){
@@ -99,6 +102,7 @@ public class Simulation {
             System.out.println("Kapibara nr " + key + ":" + value);
         }
     }
+
     public void umiescPsow(){
         int indeks_psow = 0;
         for(int k = 0; k < liczba_psow; k++){
@@ -118,6 +122,7 @@ public class Simulation {
             System.out.println("Pies nr " + key + ":" + value);
         }
     }
+
     public void stworz_symulacje(){
         for(int i = 1; i < rozmiar; i++)
         {
@@ -134,18 +139,37 @@ public class Simulation {
                             {
                                 if (map[a-1][b] == "T")
                                 {
-                                    for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet())
-                                    { 
-                                        if (entry.getValue().getKoordynata_x().equals(a) && entry.getValue().getKoordynata_y().equals(b))
-                                        {
-                                            Capybara kapibara = entry.getValue();
-                                            kapibara.eat(5);
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                            }
                                         }
                                     }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(5);
+                                            }
+                                        }
+                                    }
+
                                 }
                                 else if(map[a-1][b] == "B")
                                 {
-                                    // cos tam
+                                    for(Capybara kapibara: capybaraMap.values())
+                                    {
+                                        if(kapibara.koordynata_ox == a && kapibara.koordynata_oy == b)
+                                        {
+                                            kapibara.eat(3);
+                                        }
+                                    }
                                 }
                             }
                             else if ((a+1) < rozmiar)
@@ -187,8 +211,6 @@ public class Simulation {
                 map[i][j] = "W";
             }
             System.out.println(" ");
-
-            //Poetapne wyswietlenie mapy
             for (int k = 0; k < rozmiar; k++) {
                 for (int n = 0; n < rozmiar; n++) {
                     if (map[k][n] == "W") {
@@ -210,7 +232,6 @@ public class Simulation {
             System.out.println(" ");
         }
     }
-    
     public void wyswietl_mape() {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {

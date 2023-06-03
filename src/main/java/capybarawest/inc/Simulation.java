@@ -163,11 +163,19 @@ public class Simulation {
                                 }
                                 else if(map[a-1][b] == "B")
                                 {
-                                    for(Capybara kapibara: capybaraMap.values())
+                                    if(map[a][b] == "C") {
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(3);
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
                                     {
-                                        if(kapibara.koordynata_ox == a && kapibara.koordynata_oy == b)
-                                        {
-                                            kapibara.eat(3);
+                                        for(Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
+                                                pies.eat(3);
+                                            }
                                         }
                                     }
                                 }
@@ -176,38 +184,152 @@ public class Simulation {
                             {
                                 if (map[a+1][b] == "T")
                                 {
-                                    //cos tam cos tam
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(5);
+                                            }
+                                        }
+                                    }
                                 }
                                 else if(map[a+1][b] == "B")
                                 {
-                                    //cos
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(3);//5 - bo drzewo
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(3);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             else if ((b-1) >= 0)
                             {
                                 if (map[a][b-1] == "T")
                                 {
-                                    //cos tam cos tam
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(5);
+                                            }
+                                        }
+                                    }
                                 }
                                 else if(map[a][b-1] == "B")
                                 {
-                                    //cos
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(3);//5 - bo drzewo
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(3);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             else if ((b+1) < rozmiar)
                             {
                                 if (map[a][b+1] == "T")
                                 {
-                                    //cos tam cos tam
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(5);
+                                            }
+                                        }
+                                    }
                                 }
                                 else if(map[a][b+1] == "B")
                                 {
-                                   //cos
+                                    if(map[a][b] == "C")
+                                    {
+                                        //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
+                                        //y = b, to ta kapibara je owoce z drzewa
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(3);//5 - bo drzewo
+                                            }
+                                        }
+                                    }
+                                    else if(map[a][b] == "D")
+                                    {
+                                        for(Dog pies : dogMap.values())
+                                        {
+                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
+                                            {
+                                                pies.eat(3);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
-                }
+                } 
                 map[i][j] = "W";
             }
             System.out.println(" ");
@@ -232,6 +354,7 @@ public class Simulation {
             System.out.println(" ");
         }
     }
+
     public void wyswietl_mape() {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {

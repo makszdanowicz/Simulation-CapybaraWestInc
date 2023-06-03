@@ -152,6 +152,11 @@ public class Simulation {
                                         for (Tree drzewo : treeMap.values()){
                                             if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -169,6 +174,11 @@ public class Simulation {
                                         for (Tree drzewo : treeMap.values()){
                                             if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -187,6 +197,11 @@ public class Simulation {
                                         for (Bush krzak : bushMap.values()){
                                             if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -225,6 +240,11 @@ public class Simulation {
                                         for (Tree drzewo : treeMap.values()){
                                             if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -242,6 +262,11 @@ public class Simulation {
                                         for (Tree drzewo : treeMap.values()){
                                             if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -262,6 +287,11 @@ public class Simulation {
                                         for (Bush krzak : bushMap.values()){
                                             if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a+1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -279,6 +309,11 @@ public class Simulation {
                                         for (Bush krzak : bushMap.values()){
                                             if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a+1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -302,6 +337,11 @@ public class Simulation {
                                         for (Tree drzewo : treeMap.values()){
                                             if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -319,6 +359,11 @@ public class Simulation {
                                         for (Tree drzewo : treeMap.values()){
                                             if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -339,6 +384,11 @@ public class Simulation {
                                         for (Bush krzak : bushMap.values()){
                                             if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a][b-1] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -354,8 +404,13 @@ public class Simulation {
                                             }
                                         }
                                         for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
+                                            if (krzak.koordynata_ox == (a-1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a][b-1] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -377,8 +432,13 @@ public class Simulation {
                                             }
                                         }
                                         for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                            if (drzewo.koordynata_ox == (a-1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -394,8 +454,13 @@ public class Simulation {
                                             }
                                         }
                                         for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b){
+                                            if (drzewo.koordynata_ox == (a-1) && drzewo.koordynata_oy == b){
                                                 drzewo.getDamage(5);
+                                                if(drzewo.hp <= 0)
+                                                {
+                                                    treeMap.remove(drzewo);
+                                                    map[a-1][b] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -416,6 +481,11 @@ public class Simulation {
                                         for (Bush krzak : bushMap.values()){
                                             if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a][b+1] = "0";
+                                                }
                                                 break;
                                             }
                                         }
@@ -433,6 +503,11 @@ public class Simulation {
                                         for (Bush krzak : bushMap.values()){
                                             if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b){
                                                 krzak.getDamage(3);
+                                                if(krzak.hp <= 0)
+                                                {
+                                                    bushMap.remove(krzak);
+                                                    map[a][b+1] = "0";
+                                                }
                                                 break;
                                             }
                                         }

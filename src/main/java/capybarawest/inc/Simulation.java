@@ -154,12 +154,11 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    int klucz_drzewa = 0;
                                                     for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
                                                     {
                                                         if(entry.getValue().equals(drzewo))
                                                         {
-                                                             klucz_drzewa = entry.getKey();
+                                                             int klucz_drzewa = entry.getKey();
                                                              System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                              treeMap.remove(klucz_drzewa);
                                                         }
@@ -187,7 +186,18 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    int klucz_drzewa = 0;
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a-1][b] = "0";
                                                 }
                                                 break;
@@ -210,7 +220,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a-1][b] = "0";
                                                 }
                                                 break;
@@ -230,7 +249,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a-1][b] = "0";
                                                 }
                                                 break;
@@ -258,7 +286,17 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            int klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a+1][b] = "0";
                                                 }
                                                 break;
@@ -280,7 +318,17 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            int klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a+1][b] = "0";
                                                 }
                                                 break;
@@ -305,7 +353,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a+1][b] = "0";
                                                 }
                                                 break;
@@ -327,7 +384,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a+1][b] = "0";
                                                 }
                                                 break;
@@ -355,7 +421,17 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            int klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a][b-1] = "0";
                                                 }
                                                 break;
@@ -377,7 +453,17 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            int klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a][b-1] = "0";
                                                 }
                                                 break;
@@ -402,7 +488,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a][b-1] = "0";
                                                 }
                                                 break;
@@ -424,7 +519,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a][b-1] = "0";
                                                 }
                                                 break;
@@ -452,7 +556,17 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            int klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a][b+1] = "0";
                                                 }
                                                 break;
@@ -474,7 +588,17 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    treeMap.remove(drzewo);
+                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(drzewo))
+                                                        {
+                                                            int klucz_drzewa = entry.getKey();
+                                                            System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                            treeMap.remove(klucz_drzewa);
+                                                        }
+                                                    }
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a][b+1] = "0";
                                                 }
                                                 break;
@@ -499,7 +623,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a][b+1] = "0";
                                                 }
                                                 break;
@@ -521,7 +654,16 @@ public class Simulation {
                                                 krzak.getDamage(3);
                                                 if(krzak.hp <= 0)
                                                 {
-                                                    bushMap.remove(krzak);
+                                                    for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+                                                    {
+                                                        if(entry.getValue().equals(krzak))
+                                                        {
+                                                            int klucz_krzaka = entry.getKey();
+                                                            System.out.println(klucz_krzaka);
+                                                            bushMap.remove(klucz_krzaka);
+                                                        }
+                                                    }
+                                                    //bushMap.remove(krzak); ---usunac?????
                                                     map[a][b+1] = "0";
                                                 }
                                                 break;

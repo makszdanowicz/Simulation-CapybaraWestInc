@@ -14,7 +14,7 @@ public class Main {
         rozmiar = scan.nextInt();
         System.out.println("Podaj ilosc drzew(mozesz stworzyc do " + ((rozmiar-1)*(rozmiar)) + " obiektow): ");
         liczba_drzew = scan.nextInt();
-        System.out.println("Podaj ilosc krzaków(mozesz stworzyc do " + ((rozmiar-1)*(rozmiar)-liczba_drzew) + " obiektow): ");
+        System.out.println("Podaj ilosc krzakow(mozesz stworzyc do " + ((rozmiar-1)*(rozmiar)-liczba_drzew) + " obiektow): ");
         liczba_krzakow = scan.nextInt();
         System.out.println("Podaj ilosc kapibar(mozesz stworzyc do " + ((rozmiar-1)*(rozmiar)-liczba_drzew-liczba_krzakow) + " obiektow): ");
         liczba_kapibar = scan.nextInt();

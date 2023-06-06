@@ -25,7 +25,7 @@ public abstract class Animal implements IAnimal{
     }
     @Override
     public double eat(double owoc) {
-        return this.hp+ owoc;
+        return this.hp = this.hp + owoc;
     }
 
     @Override

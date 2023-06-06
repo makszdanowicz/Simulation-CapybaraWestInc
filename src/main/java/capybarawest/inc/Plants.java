@@ -16,7 +16,7 @@ public abstract class Plants {
     }
 
     public double getDamage(double damage){
-        return this.hp - damage;
+        return this.hp = this.hp - damage;
     }
 
     @Override

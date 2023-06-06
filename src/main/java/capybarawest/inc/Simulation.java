@@ -1,6 +1,7 @@
 package capybarawest.inc;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Simulation {
     private int rozmiar;
@@ -133,13 +134,13 @@ public class Simulation {
                 {
                     for (int b = 0; b < rozmiar; b++)
                     {
-                        if (map[a][b] == "C" || map[a][b] == "D") //sprawdzanie warunkow dla kapibary i psa
+                        if (Objects.equals(map[a][b], "C") || Objects.equals(map[a][b], "D")) //sprawdzanie warunkow dla kapibary i psa
                         {
                             if ((a-1) > 0)
                             {
-                                if (map[a-1][b] == "T")
+                                if (Objects.equals(map[a - 1][b], "T"))
                                 {
-                                    if(map[a][b] == "C")
+                                    if(Objects.equals(map[a][b], "C"))
                                     {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
@@ -171,7 +172,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -206,9 +207,9 @@ public class Simulation {
                                     }
 
                                 }
-                                else if(map[a-1][b] == "B")
+                                else if(Objects.equals(map[a - 1][b], "B"))
                                 {
-                                    if(map[a][b] == "C") {
+                                    if(Objects.equals(map[a][b], "C")) {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(3);
@@ -236,7 +237,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values()) {
                                             if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
@@ -269,9 +270,9 @@ public class Simulation {
                             }
                             else if ((a+1) < rozmiar)
                             {
-                                if (map[a+1][b] == "T")
+                                if (Objects.equals(map[a + 1][b], "T"))
                                 {
-                                    if(map[a][b] == "C")
+                                    if(Objects.equals(map[a][b], "C"))
                                     {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
@@ -303,7 +304,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -336,9 +337,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                                else if(map[a+1][b] == "B")
+                                else if(Objects.equals(map[a + 1][b], "B"))
                                 {
-                                    if(map[a][b] == "C")
+                                    if(Objects.equals(map[a][b], "C"))
                                     {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
@@ -369,7 +370,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -404,9 +405,9 @@ public class Simulation {
                             }
                             else if ((b-1) >= 0)
                             {
-                                if (map[a][b-1] == "T")
+                                if (Objects.equals(map[a][b - 1], "T"))
                                 {
-                                    if(map[a][b] == "C")
+                                    if(Objects.equals(map[a][b], "C"))
                                     {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
@@ -417,7 +418,7 @@ public class Simulation {
                                             }
                                         }
                                         for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b-1)){
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b-1){
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
@@ -438,7 +439,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -471,9 +472,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                                else if(map[a][b-1] == "B")
+                                else if(Objects.equals(map[a][b - 1], "B"))
                                 {
-                                    if(map[a][b] == "C")
+                                    if(Objects.equals(map[a][b], "C"))
                                     {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
@@ -504,7 +505,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -539,7 +540,7 @@ public class Simulation {
                             }
                             else if ((b+1) < rozmiar)
                             {
-                                if (map[a][b+1] == "T")
+                                if (Objects.equals(map[a][b + 1], "T"))
                                 {
                                     if(map[a][b] == "C")
                                     {
@@ -573,7 +574,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -606,9 +607,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                                else if(map[a][b+1] == "B")
+                                else if(Objects.equals(map[a][b + 1], "B"))
                                 {
-                                    if(map[a][b] == "C")
+                                    if(Objects.equals(map[a][b], "C"))
                                     {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
@@ -639,7 +640,7 @@ public class Simulation {
                                             }
                                         }
                                     }
-                                    else if(map[a][b] == "D")
+                                    else if(Objects.equals(map[a][b], "D"))
                                     {
                                         for(Dog pies : dogMap.values())
                                         {
@@ -724,11 +725,39 @@ public class Simulation {
     }
 
     public void wypisz_wyniki(){
+        //Wypisanie elementow kolekcji treeMap
+        System.out.println("Drzewa po symulacji:");
         for(Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
             Integer key = entry.getKey();
             Tree value = entry.getValue();
             System.out.println(key + ": " + value);
         }
+
+        System.out.println("Krzaki po symulacji:");
+        for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+        {
+            Integer key = entry.getKey();
+            Bush value = entry.getValue();
+            System.out.println(key + ": " + value);
+        }
+
+        System.out.println("Kapibary po symulacji:");
+        for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet())
+        {
+            Integer key = entry.getKey();
+            Capybara value = entry.getValue();
+            System.out.println(key + ": " + value);
+        }
+
+        System.out.println("Psy po symulacji:");
+        for(Map.Entry<Integer, Dog> entry : dogMap.entrySet())
+        {
+            Integer key = entry.getKey();
+            Dog value = entry.getValue();
+            System.out.println(key + ": " + value);
+        }
+
+
     }
 }
 

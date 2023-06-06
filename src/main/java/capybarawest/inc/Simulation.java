@@ -722,5 +722,13 @@ public class Simulation {
             System.out.println(" ");
         }
     }
+
+    public void wypisz_wyniki(){
+        for(Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
+            Integer key = entry.getKey();
+            Tree value = entry.getValue();
+            System.out.println(key + ": " + value);
+        }
+    }
 }
 

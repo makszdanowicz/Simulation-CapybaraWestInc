@@ -154,16 +154,18 @@ public class Simulation {
                                                 drzewo.getDamage(5);
                                                 if(drzewo.hp <= 0)
                                                 {
-                                                    int klucz_drzewa = -5555;
+                                                    int klucz_drzewa = 0;
                                                     for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
                                                     {
                                                         if(entry.getValue().equals(drzewo))
                                                         {
                                                              klucz_drzewa = entry.getKey();
+                                                             System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                             treeMap.remove(klucz_drzewa);
                                                         }
                                                     }
-                                                    System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
-                                                    treeMap.remove(klucz_drzewa);
+                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
+                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a-1][b] = "0";
                                                 }
                                                 break;

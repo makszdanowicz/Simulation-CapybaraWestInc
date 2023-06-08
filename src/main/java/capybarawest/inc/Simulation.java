@@ -852,6 +852,7 @@ public class Simulation {
                                 Random random = new Random();
                                 String kierunki[] = {"gora", "dol", "lewo", "prawo"};
                                 String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                                //RUCH KAPIBAR
                                 if (Objects.equals(map[a][b], "C"))
                                 {
                                     if(Objects.equals(losowy_kierunek, "gora"))
@@ -860,7 +861,7 @@ public class Simulation {
                                         {
                                             map[a-1][b] = "C";
                                         }
-                                        else if(Objects.equals(map[a-1][b], "D")
+                                        else if(Objects.equals(map[a-1][b], "D"))
                                         {
                                             //TIKAJ NAXYJ
                                         }
@@ -896,6 +897,54 @@ public class Simulation {
                                         else if (Objects.equals(map[a][b-1], "D"))
                                         {
                                             //TIKAJ NAXYJ
+                                        }
+                                    }
+                                }
+                                //RUCH PSOW
+                                if (Objects.equals(map[a][b], "D"))
+                                {
+                                    if(Objects.equals(losowy_kierunek, "gora"))
+                                    {
+                                        if (Objects.equals(map[a - 1][b], "0"))
+                                        {
+                                            map[a-1][b] = "D";
+                                        }
+                                        else if(Objects.equals(map[a-1][b], "C"))
+                                        {
+                                            //IBASH NAXYJ
+                                        }
+                                    }
+                                    else if(Objects.equals(losowy_kierunek, "dol"))
+                                    {
+                                        if(Objects.equals(map[a+1][b],"0"))
+                                        {
+                                            map[a+1][b] = "D";
+                                        }
+                                        else if (Objects.equals(map[a+1][b], "C"))
+                                        {
+                                            //IBASH NAXYJ
+                                        }
+                                    }
+                                    else if(Objects.equals(losowy_kierunek, "prawo"))
+                                    {
+                                        if(Objects.equals(map[a][b+1],"0"))
+                                        {
+                                            map[a][b+1] = "D";
+                                        }
+                                        else if (Objects.equals(map[a][b+1], "C"))
+                                        {
+                                            //IBASH NAXYJ
+                                        }
+                                    }
+                                    else if(Objects.equals(losowy_kierunek, "lewo"))
+                                    {
+                                        if(Objects.equals(map[a][b-1],"0"))
+                                        {
+                                            map[a][b-1] = "D";
+                                        }
+                                        else if (Objects.equals(map[a][b-1], "C"))
+                                        {
+                                            //IBASH NAXYJ
                                         }
                                     }
                                 }

@@ -29,7 +29,7 @@ public abstract class Animal implements IAnimal{
     }
 
     @Override
-    public void move(int predkosc) {
+    public void move(String kierunek) {
     }
     @Override
     public String toString() {

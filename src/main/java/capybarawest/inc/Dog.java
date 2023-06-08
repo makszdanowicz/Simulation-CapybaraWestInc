@@ -26,8 +26,8 @@ public class Dog extends Animal implements Attack,IAnimal{
     }
 
     @Override
-    public void move(int predkosc) {
-        super.move(predkosc);
+    public void move(String kierunek) {
+        super.move(kierunek);
     }
 
     @Override

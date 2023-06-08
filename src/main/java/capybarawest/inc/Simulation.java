@@ -1,8 +1,5 @@
 package capybarawest.inc;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Simulation {
     private int rozmiar;
@@ -135,8 +132,9 @@ public class Simulation {
                 {
                     for (int b = 0; b < rozmiar; b++)
                     {
-                        if (Objects.equals(map[a][b], "C") || Objects.equals(map[a][b], "D")) //sprawdzanie warunkow dla kapibary i psa
+                        if (Objects.equals(map[a][b], "C") || Objects.equals(map[a][b], "D"))
                         {
+                            //SPRAWDZAMY CZY JEST ROSLINA KOLO ZWIERZA
                             if ((a-1) > 0)
                             {
                                 if (Objects.equals(map[a - 1][b], "T"))
@@ -844,6 +842,60 @@ public class Simulation {
                                                 }
                                                 break;
                                             }
+                                        }
+                                    }
+                                }
+                            }
+                            //JESLI NIE MA ZADNYCH ROSLIN KOLO ZWIERZA, TO RUSZA SIE
+                            else
+                            {
+                                Random random = new Random();
+                                String kierunki[] = {"gora", "dol", "lewo", "prawo"};
+                                String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                                if (Objects.equals(map[a][b], "C"))
+                                {
+                                    if(Objects.equals(losowy_kierunek, "gora"))
+                                    {
+                                        if (Objects.equals(map[a - 1][b], "0"))
+                                        {
+                                            map[a-1][b] = "C";
+                                        }
+                                        else if(Objects.equals(map[a-1][b], "D")
+                                        {
+                                            //TIKAJ NAXYJ
+                                        }
+                                    }
+                                    else if(Objects.equals(losowy_kierunek, "dol"))
+                                    {
+                                        if(Objects.equals(map[a+1][b],"0"))
+                                        {
+                                            map[a+1][b] = "C";
+                                        }
+                                        else if (Objects.equals(map[a+1][b], "D"))
+                                        {
+                                            //TIKAJ NAXYJ
+                                        }
+                                    }
+                                    else if(Objects.equals(losowy_kierunek, "prawo"))
+                                    {
+                                        if(Objects.equals(map[a][b+1],"0"))
+                                        {
+                                            map[a][b+1] = "C";
+                                        }
+                                        else if (Objects.equals(map[a][b+1], "D"))
+                                        {
+                                            //TIKAJ NAXYJ
+                                        }
+                                    }
+                                    else if(Objects.equals(losowy_kierunek, "lewo"))
+                                    {
+                                        if(Objects.equals(map[a][b-1],"0"))
+                                        {
+                                            map[a][b-1] = "C";
+                                        }
+                                        else if (Objects.equals(map[a][b-1], "D"))
+                                        {
+                                            //TIKAJ NAXYJ
                                         }
                                     }
                                 }

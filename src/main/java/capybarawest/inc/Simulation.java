@@ -847,104 +847,98 @@ public class Simulation {
                                 }
                             }
                             //JESLI NIE MA ZADNYCH ROSLIN KOLO ZWIERZA, TO RUSZA SIE
-                            else
+                            else if(map[a-1][b] != "T" && map[a-1][b] != "B" &&
+                                    map[a+1][b] != "T" && map[a+1][b] != "B" &&
+                                    map[a][b-1] != "T" && map[a][b-1] != "B" &&
+                                    map[a][b+1] != "T" && map[a][b+1] != "B")
                             {
                                 Random random = new Random();
-                                String kierunki[] = {"gora", "dol", "lewo", "prawo"};
+                                String[] kierunki = {"gora", "dol", "lewo", "prawo"};
                                 String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
                                 //RUCH KAPIBAR
                                 if (Objects.equals(map[a][b], "C"))
                                 {
-                                    if(Objects.equals(losowy_kierunek, "gora"))
-                                    {
-                                        if (Objects.equals(map[a - 1][b], "0"))
-                                        {
-                                            map[a-1][b] = "C";
+                                    for (Capybara kapibara : capybaraMap.values()) {
+                                        if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                            break;
                                         }
-                                        else if(Objects.equals(map[a-1][b], "D"))
-                                        {
-                                            //TIKAJ NAXYJ
-                                        }
-                                    }
-                                    else if(Objects.equals(losowy_kierunek, "dol"))
-                                    {
-                                        if(Objects.equals(map[a+1][b],"0"))
-                                        {
-                                            map[a+1][b] = "C";
-                                        }
-                                        else if (Objects.equals(map[a+1][b], "D"))
-                                        {
-                                            //TIKAJ NAXYJ
-                                        }
-                                    }
-                                    else if(Objects.equals(losowy_kierunek, "prawo"))
-                                    {
-                                        if(Objects.equals(map[a][b+1],"0"))
-                                        {
-                                            map[a][b+1] = "C";
-                                        }
-                                        else if (Objects.equals(map[a][b+1], "D"))
-                                        {
-                                            //TIKAJ NAXYJ
-                                        }
-                                    }
-                                    else if(Objects.equals(losowy_kierunek, "lewo"))
-                                    {
-                                        if(Objects.equals(map[a][b-1],"0"))
-                                        {
-                                            map[a][b-1] = "C";
-                                        }
-                                        else if (Objects.equals(map[a][b-1], "D"))
-                                        {
-                                            //TIKAJ NAXYJ
+                                        if (Objects.equals(losowy_kierunek, "gora")) {
+                                            if (Objects.equals(map[a - 1][b], "0")) {
+                                                map[a - 1][b] = "C";
+                                                kapibara.koordynata_ox = a-1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a - 1][b], "D")) {
+                                                //TIKAJ NAXYJ
+                                            }
+                                        } else if (Objects.equals(losowy_kierunek, "dol")) {
+                                            if (Objects.equals(map[a + 1][b], "0")) {
+                                                map[a + 1][b] = "C";
+                                                kapibara.koordynata_ox = a+1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a + 1][b], "D")) {
+                                                //TIKAJ NAXYJ
+                                            }
+                                        } else if (Objects.equals(losowy_kierunek, "prawo")) {
+                                            if (Objects.equals(map[a][b + 1], "0")) {
+                                                map[a][b + 1] = "C";
+                                                kapibara.koordynata_oy = b+1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a][b + 1], "D")) {
+                                                //TIKAJ NAXYJ
+                                            }
+                                        } else if (Objects.equals(losowy_kierunek, "lewo")) {
+                                            if (Objects.equals(map[a][b - 1], "0")) {
+                                                map[a][b - 1] = "C";
+                                                kapibara.koordynata_oy = b-1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a][b - 1], "D")) {
+                                                //TIKAJ NAXYJ
+                                            }
                                         }
                                     }
+
                                 }
                                 //RUCH PSOW
-                                if (Objects.equals(map[a][b], "D"))
+                                else if (Objects.equals(map[a][b], "D"))
                                 {
-                                    if(Objects.equals(losowy_kierunek, "gora"))
-                                    {
-                                        if (Objects.equals(map[a - 1][b], "0"))
-                                        {
-                                            map[a-1][b] = "D";
+                                    for(Dog pies : dogMap.values()) {
+                                        if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
+                                            //pies.eat(0);
+                                            break;
                                         }
-                                        else if(Objects.equals(map[a-1][b], "C"))
-                                        {
-                                            //IBASH NAXYJ
-                                        }
-                                    }
-                                    else if(Objects.equals(losowy_kierunek, "dol"))
-                                    {
-                                        if(Objects.equals(map[a+1][b],"0"))
-                                        {
-                                            map[a+1][b] = "D";
-                                        }
-                                        else if (Objects.equals(map[a+1][b], "C"))
-                                        {
-                                            //IBASH NAXYJ
-                                        }
-                                    }
-                                    else if(Objects.equals(losowy_kierunek, "prawo"))
-                                    {
-                                        if(Objects.equals(map[a][b+1],"0"))
-                                        {
-                                            map[a][b+1] = "D";
-                                        }
-                                        else if (Objects.equals(map[a][b+1], "C"))
-                                        {
-                                            //IBASH NAXYJ
-                                        }
-                                    }
-                                    else if(Objects.equals(losowy_kierunek, "lewo"))
-                                    {
-                                        if(Objects.equals(map[a][b-1],"0"))
-                                        {
-                                            map[a][b-1] = "D";
-                                        }
-                                        else if (Objects.equals(map[a][b-1], "C"))
-                                        {
-                                            //IBASH NAXYJ
+
+                                        if (Objects.equals(losowy_kierunek, "gora")) {
+                                            if (Objects.equals(map[a - 1][b], "0")) {
+                                                map[a - 1][b] = "D";
+                                                pies.koordynata_ox = a-1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a - 1][b], "C")) {
+                                                //IBASH NAXYJ
+                                            }
+                                        } else if (Objects.equals(losowy_kierunek, "dol")) {
+                                            if (Objects.equals(map[a + 1][b], "0")) {
+                                                map[a + 1][b] = "D";
+                                                pies.koordynata_ox = a+1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a + 1][b], "C")) {
+                                                //IBASH NAXYJ
+                                            }
+                                        } else if (Objects.equals(losowy_kierunek, "prawo")) {
+                                            if (Objects.equals(map[a][b + 1], "0")) {
+                                                map[a][b + 1] = "D";
+                                                pies.koordynata_oy = b+1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a][b + 1], "C")) {
+                                                //IBASH NAXYJ
+                                            }
+                                        } else if (Objects.equals(losowy_kierunek, "lewo")) {
+                                            if (Objects.equals(map[a][b - 1], "0")) {
+                                                map[a][b - 1] = "D";
+                                                pies.koordynata_oy = b-1;
+                                                map[a][b] = "0";
+                                            } else if (Objects.equals(map[a][b - 1], "C")) {
+                                                //IBASH NAXYJ
+                                            }
                                         }
                                     }
                                 }

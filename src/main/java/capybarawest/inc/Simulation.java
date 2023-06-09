@@ -946,7 +946,13 @@ public class Simulation {
                         }
                     }
                 }
-                map[i][j] = "W";
+                if(!Objects.equals(map[i][j], "C") || !Objects.equals(map[i][j], "D"))
+                {
+                    map[i][j] = "W";
+                    System.out.println("DZIALA");
+                }
+                System.out.println("O CO CHODZIIIIIIIIII");
+                //map[i][j] = "W";
             }
             System.out.println(" ");
 

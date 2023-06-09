@@ -174,7 +174,7 @@ public class Simulation {
                                                     //treeMap.remove(klucz_drzewa);
                                                     map[a-1][b] = "0";
                                                 }
-                                                break;
+                                                break;//CZY TO NAM TRZEBA
                                             }
                                         }
                                     }

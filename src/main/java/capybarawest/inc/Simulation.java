@@ -123,11 +123,7 @@ public class Simulation {
     }
 
     public void stworz_symulacje(){
-        for(int i = 1; i < rozmiar; i++)
-        {
-            for (int j = 0; j < rozmiar; j++)
-            {
-                //Dzialanie symulacji
+        //Dzialanie symulacji
                 for (int a = 1; a < rozmiar; a++)
                 {
                     for (int b = 0; b < rozmiar; b++)
@@ -944,14 +940,12 @@ public class Simulation {
                                 }
                             }
                         }
-                    }
-                }
-                if(!Objects.equals(map[i][j], "C") || !Objects.equals(map[i][j], "D"))
+
+
+                if(!Objects.equals(map[a][b], "C") || !Objects.equals(map[a][b], "D"))
                 {
-                    map[i][j] = "W";
-                    System.out.println("DZIALA");
+                    map[a][b] = "W";
                 }
-                System.out.println("O CO CHODZIIIIIIIIII");
                 //map[i][j] = "W";
             }
             System.out.println(" ");

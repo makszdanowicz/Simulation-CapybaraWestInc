@@ -122,21 +122,18 @@ public class Simulation {
         }
     }
 
-    public void stworz_symulacje(){
-        //Dzialanie symulacji
-                for (int a = 1; a < rozmiar; a++)
-                {
-                    for (int b = 0; b < rozmiar; b++)
-                    {
-                        if (Objects.equals(map[a][b], "C") || Objects.equals(map[a][b], "D"))
-                        {
+    public void stworz_symulacje() {
+        for (int i = 1; i < rozmiar; i++) {
+            for (int j = 0; j < rozmiar; j++) {
+
+                //Dzialanie symulacji
+                for (int a = 1; a < rozmiar; a++) {
+                    for (int b = 0; b < rozmiar; b++) {
+                        if (Objects.equals(map[a][b], "C") || Objects.equals(map[a][b], "D")) {
                             //SPRAWDZAMY CZY JEST ROSLINA KOLO ZWIERZA
-                            if ((a-1) > 0)
-                            {
-                                if (Objects.equals(map[a - 1][b], "T"))
-                                {
-                                    if(Objects.equals(map[a][b], "C"))
-                                    {
+                            if ((a - 1) > 0) {
+                                if (Objects.equals(map[a - 1][b], "T")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -145,16 +142,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == (a-1) && drzewo.koordynata_oy == b){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -172,32 +168,27 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a-1][b] = "0";
+                                                    map[a - 1][b] = "0";
                                                 }
                                                 break;//CZY TO NAM TRZEBA
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(5);
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == (a-1) && drzewo.koordynata_oy == b){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -215,33 +206,30 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a-1][b] = "0";
+                                                    map[a - 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
 
-                                }
-                                else if(Objects.equals(map[a - 1][b], "B"))
-                                {
-                                    if(Objects.equals(map[a][b], "C")) {
+                                } else if (Objects.equals(map[a - 1][b], "B")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         for (Capybara kapibara : capybaraMap.values()) {
                                             if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                                 kapibara.eat(3);
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == (a-1) && krzak.koordynata_oy == b){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -258,30 +246,27 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a-1][b] = "0";
+                                                    map[a - 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values()) {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
                                             if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(3);
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == (a-1) && krzak.koordynata_oy == b){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -298,20 +283,16 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a-1][b] = "0";
+                                                    map[a - 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
                                 }
-                            }
-                            else if ((a+1) < rozmiar)
-                            {
-                                if (Objects.equals(map[a + 1][b], "T"))
-                                {
-                                    if(Objects.equals(map[a][b], "C"))
-                                    {
+                            } else if ((a + 1) < rozmiar) {
+                                if (Objects.equals(map[a + 1][b], "T")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -320,16 +301,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == (a+1) && drzewo.koordynata_oy == b){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == (a + 1) && drzewo.koordynata_oy == b) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -347,32 +327,27 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a+1][b] = "0";
+                                                    map[a + 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(5);
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == (a+1) && drzewo.koordynata_oy == b){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == (a + 1) && drzewo.koordynata_oy == b) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -390,17 +365,14 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a+1][b] = "0";
+                                                    map[a + 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
-                                }
-                                else if(Objects.equals(map[a + 1][b], "B"))
-                                {
-                                    if(Objects.equals(map[a][b], "C"))
-                                    {
+                                } else if (Objects.equals(map[a + 1][b], "B")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -409,16 +381,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == (a+1) && krzak.koordynata_oy == b){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == (a + 1) && krzak.koordynata_oy == b) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -435,32 +406,27 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a+1][b] = "0";
+                                                    map[a + 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(3);
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == (a+1) && krzak.koordynata_oy == b){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == (a + 1) && krzak.koordynata_oy == b) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -477,20 +443,16 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a+1][b] = "0";
+                                                    map[a + 1][b] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
                                 }
-                            }
-                            else if ((b-1) >= 0)
-                            {
-                                if (Objects.equals(map[a][b - 1], "T"))
-                                {
-                                    if(Objects.equals(map[a][b], "C"))
-                                    {
+                            } else if ((b - 1) >= 0) {
+                                if (Objects.equals(map[a][b - 1], "T")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -499,16 +461,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b-1){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b - 1) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -526,32 +487,27 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b-1] = "0";
+                                                    map[a][b - 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(5);
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b-1)){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b - 1)) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -569,17 +525,14 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b-1] = "0";
+                                                    map[a][b - 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
-                                }
-                                else if(Objects.equals(map[a][b - 1], "B"))
-                                {
-                                    if(Objects.equals(map[a][b], "C"))
-                                    {
+                                } else if (Objects.equals(map[a][b - 1], "B")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -588,16 +541,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b-1)){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b - 1)) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -614,32 +566,27 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b-1] = "0";
+                                                    map[a][b - 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(3);
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b-1)){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b - 1)) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -656,20 +603,16 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b-1] = "0";
+                                                    map[a][b - 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
                                 }
-                            }
-                            else if ((b+1) < rozmiar)
-                            {
-                                if (Objects.equals(map[a][b + 1], "T"))
-                                {
-                                    if(map[a][b] == "C")
-                                    {
+                            } else if ((b + 1) < rozmiar) {
+                                if (Objects.equals(map[a][b + 1], "T")) {
+                                    if (map[a][b] == "C") {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -678,16 +621,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b+1)){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b + 1)) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -705,32 +647,27 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b+1] = "0";
+                                                    map[a][b + 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(5);
                                                 break;
                                             }
                                         }
-                                        for (Tree drzewo : treeMap.values()){
-                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b+1)){
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == (b + 1)) {
                                                 drzewo.getDamage(5);
-                                                if(drzewo.hp <= 0)
-                                                {
+                                                if (drzewo.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Tree> entry = iterator.next();
-                                                        if (entry.getValue().equals(drzewo)){
+                                                        if (entry.getValue().equals(drzewo)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -747,17 +684,14 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b+1] = "0";
+                                                    map[a][b + 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
                                     }
-                                }
-                                else if(Objects.equals(map[a][b + 1], "B"))
-                                {
-                                    if(Objects.equals(map[a][b], "C"))
-                                    {
+                                } else if (Objects.equals(map[a][b + 1], "B")) {
+                                    if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
                                         //y = b, to ta kapibara je owoce z drzewa
                                         for (Capybara kapibara : capybaraMap.values()) {
@@ -766,16 +700,15 @@ public class Simulation {
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b+1)){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b + 1)) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -792,32 +725,27 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b+1] = "0";
+                                                    map[a][b + 1] = "0";
                                                 }
                                                 break;
                                             }
                                         }
-                                    }
-                                    else if(Objects.equals(map[a][b], "D"))
-                                    {
-                                        for(Dog pies : dogMap.values())
-                                        {
-                                            if(pies.koordynata_ox == a && pies.koordynata_oy == b)
-                                            {
+                                    } else if (Objects.equals(map[a][b], "D")) {
+                                        for (Dog pies : dogMap.values()) {
+                                            if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                                 pies.eat(3);
                                                 break;
                                             }
                                         }
-                                        for (Bush krzak : bushMap.values()){
-                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b+1)){
+                                        for (Bush krzak : bushMap.values()) {
+                                            if (krzak.koordynata_ox == a && krzak.koordynata_oy == (b + 1)) {
                                                 krzak.getDamage(3);
-                                                if(krzak.hp <= 0)
-                                                {
+                                                if (krzak.hp <= 0) {
                                                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                     Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
-                                                    while (iterator.hasNext()){
+                                                    while (iterator.hasNext()) {
                                                         Map.Entry<Integer, Bush> entry = iterator.next();
-                                                        if (entry.getValue().equals(krzak)){
+                                                        if (entry.getValue().equals(krzak)) {
                                                             iterator.remove();
                                                         }
                                                     }
@@ -834,7 +762,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b+1] = "0";
+                                                    map[a][b + 1] = "0";
                                                 }
                                                 break;
                                             }
@@ -843,17 +771,15 @@ public class Simulation {
                                 }
                             }
                             //JESLI NIE MA ZADNYCH ROSLIN KOLO ZWIERZA, TO RUSZA SIE
-                            else if(map[a-1][b] != "T" && map[a-1][b] != "B" &&
-                                    map[a+1][b] != "T" && map[a+1][b] != "B" &&
-                                    map[a][b-1] != "T" && map[a][b-1] != "B" &&
-                                    map[a][b+1] != "T" && map[a][b+1] != "B")
-                            {
+                            else if (map[a - 1][b] != "T" && map[a - 1][b] != "B" &&
+                                    map[a + 1][b] != "T" && map[a + 1][b] != "B" &&
+                                    map[a][b - 1] != "T" && map[a][b - 1] != "B" &&
+                                    map[a][b + 1] != "T" && map[a][b + 1] != "B") {
                                 Random random = new Random();
                                 String[] kierunki = {"gora", "dol", "lewo", "prawo"};
                                 String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
                                 //RUCH KAPIBAR
-                                if (Objects.equals(map[a][b], "C"))
-                                {
+                                if (Objects.equals(map[a][b], "C")) {
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                             break;
@@ -861,7 +787,7 @@ public class Simulation {
                                         if (Objects.equals(losowy_kierunek, "gora")) {
                                             if (Objects.equals(map[a - 1][b], "0")) {
                                                 map[a - 1][b] = "C";
-                                                kapibara.koordynata_ox = a-1;
+                                                kapibara.koordynata_ox = a - 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a - 1][b], "D")) {
                                                 //TIKAJ NAXYJ
@@ -869,7 +795,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "dol")) {
                                             if (Objects.equals(map[a + 1][b], "0")) {
                                                 map[a + 1][b] = "C";
-                                                kapibara.koordynata_ox = a+1;
+                                                kapibara.koordynata_ox = a + 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a + 1][b], "D")) {
                                                 //TIKAJ NAXYJ
@@ -877,7 +803,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "prawo")) {
                                             if (Objects.equals(map[a][b + 1], "0")) {
                                                 map[a][b + 1] = "C";
-                                                kapibara.koordynata_oy = b+1;
+                                                kapibara.koordynata_oy = b + 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a][b + 1], "D")) {
                                                 //TIKAJ NAXYJ
@@ -885,7 +811,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "lewo")) {
                                             if (Objects.equals(map[a][b - 1], "0")) {
                                                 map[a][b - 1] = "C";
-                                                kapibara.koordynata_oy = b-1;
+                                                kapibara.koordynata_oy = b - 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a][b - 1], "D")) {
                                                 //TIKAJ NAXYJ
@@ -895,9 +821,8 @@ public class Simulation {
 
                                 }
                                 //RUCH PSOW
-                                else if (Objects.equals(map[a][b], "D"))
-                                {
-                                    for(Dog pies : dogMap.values()) {
+                                else if (Objects.equals(map[a][b], "D")) {
+                                    for (Dog pies : dogMap.values()) {
                                         if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
                                             //pies.eat(0);
                                             break;
@@ -906,7 +831,7 @@ public class Simulation {
                                         if (Objects.equals(losowy_kierunek, "gora")) {
                                             if (Objects.equals(map[a - 1][b], "0")) {
                                                 map[a - 1][b] = "D";
-                                                pies.koordynata_ox = a-1;
+                                                pies.koordynata_ox = a - 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a - 1][b], "C")) {
                                                 //IBASH NAXYJ
@@ -914,7 +839,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "dol")) {
                                             if (Objects.equals(map[a + 1][b], "0")) {
                                                 map[a + 1][b] = "D";
-                                                pies.koordynata_ox = a+1;
+                                                pies.koordynata_ox = a + 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a + 1][b], "C")) {
                                                 //IBASH NAXYJ
@@ -922,7 +847,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "prawo")) {
                                             if (Objects.equals(map[a][b + 1], "0")) {
                                                 map[a][b + 1] = "D";
-                                                pies.koordynata_oy = b+1;
+                                                pies.koordynata_oy = b + 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a][b + 1], "C")) {
                                                 //IBASH NAXYJ
@@ -930,7 +855,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "lewo")) {
                                             if (Objects.equals(map[a][b - 1], "0")) {
                                                 map[a][b - 1] = "D";
-                                                pies.koordynata_oy = b-1;
+                                                pies.koordynata_oy = b - 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a][b - 1], "C")) {
                                                 //IBASH NAXYJ
@@ -940,13 +865,19 @@ public class Simulation {
                                 }
                             }
                         }
-
-
-                if(!Objects.equals(map[a][b], "C") || !Objects.equals(map[a][b], "D"))
-                {
-                    map[a][b] = "W";
+                    }
                 }
-                //map[i][j] = "W";
+
+                 if(!"C".equals(map[i][j]) || !"D".equals(map[i][j]))
+                 {
+                    map[i][j] == "W";
+                 }
+                /*
+                if (!Objects.equals(map[i][j], "C") || !Objects.equals(map[i][j], "D")) {
+                    map[i][j] = "W";
+                }
+                //map[i][j] = "W"; REMOVEEE
+                 */
             }
             System.out.println(" ");
 

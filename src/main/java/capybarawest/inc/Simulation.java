@@ -870,7 +870,7 @@ public class Simulation {
 
                  if(!"C".equals(map[i][j]) || !"D".equals(map[i][j]))
                  {
-                    map[i][j] == "W";
+                    map[i][j] = "W";
                  }
                 /*
                 if (!Objects.equals(map[i][j], "C") || !Objects.equals(map[i][j], "D")) {

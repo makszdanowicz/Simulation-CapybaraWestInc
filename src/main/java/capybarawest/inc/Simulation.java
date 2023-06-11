@@ -774,7 +774,8 @@ public class Simulation {
                             else if (map[a - 1][b] != "T" && map[a - 1][b] != "B" &&
                                     map[a + 1][b] != "T" && map[a + 1][b] != "B" &&
                                     map[a][b - 1] != "T" && map[a][b - 1] != "B" &&
-                                    map[a][b + 1] != "T" && map[a][b + 1] != "B") {
+                                    map[a][b + 1] != "T" && map[a][b + 1] != "B")
+                            {
                                 Random random = new Random();
                                 String[] kierunki = {"gora", "dol", "lewo", "prawo"};
                                 String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
@@ -782,9 +783,9 @@ public class Simulation {
                                 if (Objects.equals(map[a][b], "C")) {
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
-                                            break;
+                                            kapibara.move(losowy_kierunek);//break;
                                         }
-                                        if (Objects.equals(losowy_kierunek, "gora")) {
+                                        if (Objects.equals(losowy_kierunek, "gora")) { //losowy_kierunek.equals("gora")
                                             if (Objects.equals(map[a - 1][b], "0")) {
                                                 map[a - 1][b] = "C";
                                                 kapibara.koordynata_ox = a - 1;
@@ -818,7 +819,6 @@ public class Simulation {
                                             }
                                         }
                                     }
-
                                 }
                                 //RUCH PSOW
                                 else if (Objects.equals(map[a][b], "D")) {

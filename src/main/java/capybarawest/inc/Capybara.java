@@ -1,14 +1,7 @@
 package capybarawest.inc;
 
-public class Capybara extends Animal implements IAnimal{
+public class Capybara extends Animal{
     //private int attackPower = 0;
-
-    protected double hp;
-    protected int koordynata_ox;
-    protected int koordynata_oy;
-    protected int predkosc;
-    protected int damage;
-
     public Capybara() {
        super();
     }

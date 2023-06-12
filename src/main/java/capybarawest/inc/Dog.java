@@ -1,5 +1,5 @@
 package capybarawest.inc;
-public class Dog extends Animal implements Attack,IAnimal{
+public class Dog extends Animal implements Attack{
 
     private int moc_ataku = 0;
     public Dog(){

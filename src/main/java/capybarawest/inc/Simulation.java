@@ -138,7 +138,123 @@ public class Simulation {
                 for (int a = 1; a < rozmiar; a++) {
                     for (int b = 0; b < rozmiar; b++) {
                         if (Objects.equals(map[a][b], "C") || Objects.equals(map[a][b], "D")) {
+
+
                             //SPRAWDZAMY CZY JEST ROSLINA KOLO ZWIERZA
+                            //Sprawdzenie dla kapibar
+                            if(Objects.equals(map[a][b], "C")){
+                                if(a-1 > 0){
+                                    if(Objects.equals(map[a-1][b],"T")){
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b) {
+                                                drzewo.getDamage(5);
+                                                if (drzewo.hp <= 0) {
+                                                    //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
+                                                    Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
+                                                    while (iterator.hasNext()) {
+                                                        Map.Entry<Integer, Tree> entry = iterator.next();
+                                                        if (entry.getValue().equals(drzewo)) {
+                                                            iterator.remove();
+                                                        }
+                                                    }
+                                                    map[a-1][b] = ".";
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                else if(a < rozmiar - 1){
+                                    if(Objects.equals(map[a+1][b],"T")){
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == (a + 1) && drzewo.koordynata_oy == b) {
+                                                drzewo.getDamage(5);
+                                                if (drzewo.hp <= 0) {
+                                                    //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
+                                                    Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
+                                                    while (iterator.hasNext()) {
+                                                        Map.Entry<Integer, Tree> entry = iterator.next();
+                                                        if (entry.getValue().equals(drzewo)) {
+                                                            iterator.remove();
+                                                        }
+                                                    }
+                                                    map[a + 1][b] = ".";
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                else if(b - 1 >= 0){
+                                    if(Objects.equals(map[a][b-1],"T")){
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b - 1) {
+                                                drzewo.getDamage(5);
+                                                if (drzewo.hp <= 0) {
+                                                    //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
+                                                    Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
+                                                    while (iterator.hasNext()) {
+                                                        Map.Entry<Integer, Tree> entry = iterator.next();
+                                                        if (entry.getValue().equals(drzewo)) {
+                                                            iterator.remove();
+                                                        }
+                                                    }
+                                                    map[a][b-1] = ".";
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                else if(b + 1 < rozmiar){
+                                    if(Objects.equals(map[a][b+1],"T")){
+                                        for (Capybara kapibara : capybaraMap.values()) {
+                                            if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                                kapibara.eat(5);//5 - bo drzewo
+                                                break;
+                                            }
+                                        }
+                                        for (Tree drzewo : treeMap.values()) {
+                                            if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b + 1) {
+                                                drzewo.getDamage(5);
+                                                if (drzewo.hp <= 0) {
+                                                    //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
+                                                    Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
+                                                    while (iterator.hasNext()) {
+                                                        Map.Entry<Integer, Tree> entry = iterator.next();
+                                                        if (entry.getValue().equals(drzewo)) {
+                                                            iterator.remove();
+                                                        }
+                                                    }
+                                                    map[a][b+1] = ".";
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            //KONIEC NOWEGO
+
+
                             if ((a - 1) > 0) {
                                 if (Objects.equals(map[a - 1][b], "T")) {
                                     if (Objects.equals(map[a][b], "C")) {
@@ -162,20 +278,6 @@ public class Simulation {
                                                             iterator.remove();
                                                         }
                                                     }
-                                                    /*
-                                                    for(Map.Entry<Integer, Tree> entry: treeMap.entrySet())
-                                                    {
-                                                        if(entry.getValue().equals(drzewo))
-                                                        {
-                                                             int klucz_drzewa = entry.getKey();
-                                                             System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
-                                                             treeMap.remove(klucz_drzewa);
-                                                        }
-                                                    }
-
-                                                     */
-                                                    //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
-                                                    //treeMap.remove(klucz_drzewa);
                                                     map[a - 1][b] = ".";
                                                 }
                                                 break;//CZY TO NAM TRZEBA

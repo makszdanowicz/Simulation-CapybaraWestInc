@@ -29,6 +29,7 @@ public class Capybara extends Animal{
     public int getKoordynata_y() {
         return this.koordynata_oy;
     }
+    public double getDamage(double damage_from_dog){ return this.hp = this.hp - damage_from_dog;}
 
     @Override
     public String toString() {

@@ -2,6 +2,14 @@ package capybarawest.inc;
 import java.util.*;
 
 public class Simulation {
+    //CONST
+    private static final String WATER = "W";
+    private static final String TREE = "T";
+    private static final String BUSH = "B";
+    private static final String DOG = "D";
+    private static final String CAPYBARA = "C";
+    private static final String EMPTY_FIELD = ".";
+
     private int rozmiar;
     private int liczba_drzew;
     private int liczba_krzakow;
@@ -36,8 +44,8 @@ public class Simulation {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {
                 if (i == 0) {
-                    map[0][j] = "W";
-                } else map[i][j] = "0";
+                    map[0][j] = WATER;
+                } else map[i][j] = EMPTY_FIELD;
             }
         }
     }
@@ -49,8 +57,8 @@ public class Simulation {
             do{
                 x = (int) (Math.random() * (rozmiar - 1)) + 1;
                 y = (int) (Math.random() * rozmiar);
-            } while (map[x][y] == "T");
-            map[x][y] = "T";
+            } while (TREE.equals(map[x][y]));
+            map[x][y] = TREE;
             Tree tree = new Tree(50, x, y);
             indeks_drzewa++;
             treeMap.put(indeks_drzewa, tree);
@@ -69,8 +77,8 @@ public class Simulation {
             do{
                 x = (int)(Math.random() * (rozmiar - 1)) + 1;
                 y = (int)(Math.random() * rozmiar);
-            } while (map[x][y] == "T" || map[x][y] == "B");
-            map[x][y] = "B";
+            } while (TREE.equals(map[x][y]) || BUSH.equals(map[x][y]));
+            map[x][y] = BUSH;
             Bush krzak = new Bush(30, x, y);
             indeks_krzaka++;
             bushMap.put(indeks_krzaka, krzak);
@@ -89,8 +97,8 @@ public class Simulation {
             do{
                 x = (int)(Math.random() * (rozmiar - 1)) + 1;
                 y = (int)(Math.random() * rozmiar);
-            } while (map[x][y] == "T" || map[x][y] == "B" || map[x][y] == "C");
-            map[x][y] = "C";
+            } while (TREE.equals(map[x][y]) || BUSH.equals(map[x][y]) || CAPYBARA.equals(map[x][y]));
+            map[x][y] = CAPYBARA;
             Capybara kapibara = new Capybara(100, x, y, 3, 5);
             indeks_kapibar++;
             capybaraMap.put(indeks_kapibar, kapibara);
@@ -109,8 +117,8 @@ public class Simulation {
             do{
                 x = (int)(Math.random() * (rozmiar - 1)) + 1;
                 y = (int)(Math.random() * rozmiar);
-            } while (map[x][y] == "T" || map[x][y] == "B" || map[x][y] == "C" || map[x][y] == "D" );
-            map[x][y] = "D";
+            } while (TREE.equals(map[x][y]) || BUSH.equals(map[x][y]) || CAPYBARA.equals(map[x][y]) || DOG.equals(map[x][y]));
+            map[x][y] = DOG;
             Dog pies = new Dog(100, x, y, 1, 5);
             indeks_psow++;
             dogMap.put(indeks_psow, pies);
@@ -290,7 +298,7 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if ((a + 1) < rozmiar) {
+                            } else if (a < rozmiar - 1) {
                                 if (Objects.equals(map[a + 1][b], "T")) {
                                     if (Objects.equals(map[a][b], "C")) {
                                         //sprawdzanie,jesli kapibara(nasze value z kolekcji capybaraMap) ma koordynaty x = a(pozycja sprawdzonej kapibary)
@@ -780,14 +788,17 @@ public class Simulation {
                                 String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
                                 //RUCH KAPIBAR
                                 if (Objects.equals(map[a][b], "C")) {
+                                    Capybara kapibara1 = new Capybara();
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                            kapibara1 = kapibara;
                                             break;
                                         }
+                                    }
                                         if (Objects.equals(losowy_kierunek, "gora")) {
                                             if (Objects.equals(map[a - 1][b], "0")) {
                                                 map[a - 1][b] = "C";
-                                                kapibara.koordynata_ox = a - 1;
+                                                kapibara1.koordynata_ox = a - 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a - 1][b], "D")) {
                                                 //TIKAJ NAXYJ
@@ -795,7 +806,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "dol")) {
                                             if (Objects.equals(map[a + 1][b], "0")) {
                                                 map[a + 1][b] = "C";
-                                                kapibara.koordynata_ox = a + 1;
+                                                kapibara1.koordynata_ox = a + 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a + 1][b], "D")) {
                                                 //TIKAJ NAXYJ
@@ -803,7 +814,7 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "prawo")) {
                                             if (Objects.equals(map[a][b + 1], "0")) {
                                                 map[a][b + 1] = "C";
-                                                kapibara.koordynata_oy = b + 1;
+                                                kapibara1.koordynata_oy = b + 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a][b + 1], "D")) {
                                                 //TIKAJ NAXYJ
@@ -811,13 +822,13 @@ public class Simulation {
                                         } else if (Objects.equals(losowy_kierunek, "lewo")) {
                                             if (Objects.equals(map[a][b - 1], "0")) {
                                                 map[a][b - 1] = "C";
-                                                kapibara.koordynata_oy = b - 1;
+                                                kapibara1.koordynata_oy = b - 1;
                                                 map[a][b] = "0";
                                             } else if (Objects.equals(map[a][b - 1], "D")) {
                                                 //TIKAJ NAXYJ
                                             }
                                         }
-                                    }
+
 
                                 }
                                 //RUCH PSOW
@@ -868,16 +879,10 @@ public class Simulation {
                     }
                 }
 
-                 if(!"C".equals(map[i][j]) || !"D".equals(map[i][j]))
+                 if(!("C".equals(map[i][j]) || "D".equals(map[i][j])))
                  {
                     map[i][j] = "W";
                  }
-                /*
-                if (!Objects.equals(map[i][j], "C") || !Objects.equals(map[i][j], "D")) {
-                    map[i][j] = "W";
-                }
-                //map[i][j] = "W"; REMOVEEE
-                 */
             }
             System.out.println(" ");
 

@@ -176,7 +176,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a - 1][b] = "0";
+                                                    map[a - 1][b] = ".";
                                                 }
                                                 break;//CZY TO NAM TRZEBA
                                             }
@@ -214,7 +214,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a - 1][b] = "0";
+                                                    map[a - 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -254,7 +254,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a - 1][b] = "0";
+                                                    map[a - 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -291,7 +291,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a - 1][b] = "0";
+                                                    map[a - 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -335,7 +335,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a + 1][b] = "0";
+                                                    map[a + 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -373,7 +373,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a + 1][b] = "0";
+                                                    map[a + 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -414,7 +414,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a + 1][b] = "0";
+                                                    map[a + 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -451,7 +451,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a + 1][b] = "0";
+                                                    map[a + 1][b] = ".";
                                                 }
                                                 break;
                                             }
@@ -495,7 +495,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b - 1] = "0";
+                                                    map[a][b - 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -533,7 +533,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b - 1] = "0";
+                                                    map[a][b - 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -574,7 +574,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b - 1] = "0";
+                                                    map[a][b - 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -611,7 +611,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b - 1] = "0";
+                                                    map[a][b - 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -655,7 +655,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b + 1] = "0";
+                                                    map[a][b + 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -692,7 +692,7 @@ public class Simulation {
                                                      */
                                                     //System.out.println(klucz_drzewa); //!!!!TRZEBA POTEM USUNAC
                                                     //treeMap.remove(klucz_drzewa);
-                                                    map[a][b + 1] = "0";
+                                                    map[a][b + 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -733,7 +733,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b + 1] = "0";
+                                                    map[a][b + 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -770,7 +770,7 @@ public class Simulation {
 
                                                      */
                                                     //bushMap.remove(krzak); ---usunac?????
-                                                    map[a][b + 1] = "0";
+                                                    map[a][b + 1] = ".";
                                                 }
                                                 break;
                                             }
@@ -789,7 +789,7 @@ public class Simulation {
                                 String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
                                 //RUCH KAPIBAR
                                 if (Objects.equals(map[a][b], "C")) {
-                                    Capybara kapibara1 = new Capybara();
+                                    Capybara kapibara1 = new Capybara(); //referencja do komurki w pamieci, przechowujacej obiekt kapibara
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
                                             kapibara.move(losowy_kierunek);//break;
@@ -800,34 +800,34 @@ public class Simulation {
                                         }
                                     }
                                         if (Objects.equals(losowy_kierunek, "gora")) {
-                                            if (Objects.equals(map[a - 1][b], "0")) {
+                                            if (Objects.equals(map[a - 1][b], ".")) {
                                                 map[a - 1][b] = "C";
                                                 kapibara1.koordynata_ox = a - 1;
-                                                map[a][b] = "0";
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a - 1][b], "D")) {
                                                 //TIKAJ NAXYJ
                                             }
                                         } else if (Objects.equals(losowy_kierunek, "dol")) {
-                                            if (Objects.equals(map[a + 1][b], "0")) {
+                                            if (Objects.equals(map[a + 1][b], ".")) {
                                                 map[a + 1][b] = "C";
                                                 kapibara1.koordynata_ox = a + 1;
-                                                map[a][b] = "0";
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a + 1][b], "D")) {
                                                 //TIKAJ NAXYJ
                                             }
                                         } else if (Objects.equals(losowy_kierunek, "prawo")) {
-                                            if (Objects.equals(map[a][b + 1], "0")) {
+                                            if (Objects.equals(map[a][b + 1], ".")) {
                                                 map[a][b + 1] = "C";
                                                 kapibara1.koordynata_oy = b + 1;
-                                                map[a][b] = "0";
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a][b + 1], "D")) {
                                                 //TIKAJ NAXYJ
                                             }
                                         } else if (Objects.equals(losowy_kierunek, "lewo")) {
-                                            if (Objects.equals(map[a][b - 1], "0")) {
+                                            if (Objects.equals(map[a][b - 1], ".")) {
                                                 map[a][b - 1] = "C";
                                                 kapibara1.koordynata_oy = b - 1;
-                                                map[a][b] = "0";
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a][b - 1], "D")) {
                                                 //TIKAJ NAXYJ
                                             }
@@ -836,46 +836,46 @@ public class Simulation {
                                 }
                                 //RUCH PSOW
                                 else if (Objects.equals(map[a][b], "D")) {
+                                    Dog pies1 = new Dog();
                                     for (Dog pies : dogMap.values()) {
                                         if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
-                                            //pies.eat(0);
+                                            pies1 = pies;
                                             break;
                                         }
-
+                                    }
                                         if (Objects.equals(losowy_kierunek, "gora")) {
-                                            if (Objects.equals(map[a - 1][b], "0")) {
+                                            if (Objects.equals(map[a - 1][b], ".")) {
                                                 map[a - 1][b] = "D";
-                                                pies.koordynata_ox = a - 1;
-                                                map[a][b] = "0";
+                                                pies1.koordynata_ox = a - 1;
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a - 1][b], "C")) {
                                                 //IBASH NAXYJ
                                             }
                                         } else if (Objects.equals(losowy_kierunek, "dol")) {
-                                            if (Objects.equals(map[a + 1][b], "0")) {
+                                            if (Objects.equals(map[a + 1][b], ".")) {
                                                 map[a + 1][b] = "D";
-                                                pies.koordynata_ox = a + 1;
-                                                map[a][b] = "0";
+                                                pies1.koordynata_ox = a + 1;
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a + 1][b], "C")) {
                                                 //IBASH NAXYJ
                                             }
                                         } else if (Objects.equals(losowy_kierunek, "prawo")) {
-                                            if (Objects.equals(map[a][b + 1], "0")) {
+                                            if (Objects.equals(map[a][b + 1], ".")) {
                                                 map[a][b + 1] = "D";
-                                                pies.koordynata_oy = b + 1;
-                                                map[a][b] = "0";
+                                                pies1.koordynata_oy = b + 1;
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a][b + 1], "C")) {
                                                 //IBASH NAXYJ
                                             }
                                         } else if (Objects.equals(losowy_kierunek, "lewo")) {
-                                            if (Objects.equals(map[a][b - 1], "0")) {
+                                            if (Objects.equals(map[a][b - 1], ".")) {
                                                 map[a][b - 1] = "D";
-                                                pies.koordynata_oy = b - 1;
-                                                map[a][b] = "0";
+                                                pies1.koordynata_oy = b - 1;
+                                                map[a][b] = ".";
                                             } else if (Objects.equals(map[a][b - 1], "C")) {
                                                 //IBASH NAXYJ
                                             }
                                         }
-                                    }
                                 }
                             }
                         }

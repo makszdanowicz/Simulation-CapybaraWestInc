@@ -137,35 +137,131 @@ public class Simulation {
         for (int i = 1; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {
 
-                //Dzialanie symulacji(sprawdzanie warunkow)
+                //Dzialanie symulacji(sprawdzanie warunkow dla kapibary lub psa)
                 for (int a = 1; a < rozmiar; a++) {
                     for (int b = 0; b < rozmiar; b++) {
-                        int sasiad;
+                        String sasiad;
                         if(CAPYBARA.equals(map[a][b])) {
                             sasiad = sprawdz_sasiadow(a, b);
-                            System.out.println(sasiad);
-                            if(sasiad == 1){
+                            if("roslina gora".equals(sasiad)){
                                 //metoda eat
                             }
-                            else if(sasiad == 2){
+                            else if("roslina dol".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("roslina lewo".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("roslina prawo".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("pies gora".equals(sasiad) || "pies dol".equals(sasiad) || "pies lewo".equals(sasiad) || "pies prawo".equals(sasiad)){
                                 //metoda uciekaj
                             }
-                            else if(sasiad == 3){
-                                //losuj i move
-                            }
-                            else if(sasiad == 0){
-                                //move
+                            else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
+                                // metoda move
                             }
                         }
                         else if(DOG.equals(map[a][b])){
                             sasiad = sprawdz_sasiadow(a,b);
+                            if("roslina gora".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("roslina dol".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("roslina lewo".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("roslina prawo".equals(sasiad)){
+                                //metoda eat
+                            }
+                            else if("kapibara gora".equals(sasiad) || "kapibara dol".equals(sasiad) || "kapibara lewo".equals(sasiad) || "kapibara prawo".equals(sasiad)){
+                                //metoda atack
+                            }
+                            else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
+                                // metoda move
+                            }
                         }
                     }
                 }
             }
         }
     }
-    public int sprawdz_sasiadow(int x, int y){
+    public String sprawdz_sasiadow_gora(int x, int y){
+        if((x-1)>0) {
+            if (TREE.equals(map[x - 1][y]) || BUSH.equals(map[x - 1][y])) return "roslina";
+            else if (DOG.equals(map[x - 1][y])) return "pies";
+            else if (CAPYBARA.equals(map[x - 1][y])) return "kapibara";
+            else if (EMPTY_FIELD.equals(map[x - 1][y])) return "nic";
+        }
+        return "NIE MOZNA SPRAWDZIC SASIEDA NA GORZE";
+    }
+    public String sprawdz_sasiadow_dol(int x, int y){
+        if((x+1)<(rozmiar-1)) {
+            if (TREE.equals(map[x + 1][y]) || BUSH.equals(map[x + 1][y])) return "roslina";
+            else if (DOG.equals(map[x + 1][y])) return "pies";
+            else if (CAPYBARA.equals(map[x + 1][y])) return "kapibara";
+            else if (EMPTY_FIELD.equals(map[x + 1][y])) return "nic";
+        }
+        return "NIE MOZNA SPRAWDZIC SASIEDA NA DOLU";
+    }
+    public String sprawdz_sasiadow_lewo(int x, int y){
+        if((y-1)>=0) {
+            if (TREE.equals(map[x][y - 1]) || BUSH.equals(map[x][y - 1])) return "roslina";
+            else if (DOG.equals(map[x][y - 1])) return "pies";
+            else if (CAPYBARA.equals(map[x][y - 1])) return "kapibara";
+            else if (EMPTY_FIELD.equals(map[x][y - 1])) return "nic";
+        }
+        return "NIE MOZNA SPRAWDZIC SASIEDA Z LEWEJ STRONY";
+    }
+    public String sprawdz_sasiadow_prawo(int x, int y){
+        if((y+1)<(rozmiar-1)) {
+            if (TREE.equals(map[x][y + 1]) || BUSH.equals(map[x][y + 1])) return "roslina";
+            else if (DOG.equals(map[x][y + 1])) return "pies";
+            else if (CAPYBARA.equals(map[x][y + 1])) return "kapibara";
+            else if (EMPTY_FIELD.equals(map[x][y + 1])) return "nic";
+        }
+        return "NIE MOZNA SPRAWDZIC SASIEDA Z PRAWEJ STRONY";
+    }
+    public String  sprawdz_sasiadow(int x, int y){
+        String  gora,dol,lewo,prawo;
+        gora = sprawdz_sasiadow_gora(x, y);
+        dol = sprawdz_sasiadow_dol(x, y);
+        lewo = sprawdz_sasiadow_lewo(x, y);
+        prawo = sprawdz_sasiadow_prawo(x, y);
+        if("roslina".equals(gora)) return "roslina gora";
+        else if("roslina".equals(dol)) return "roslina dol";
+        else if("roslina".equals(lewo)) return "roslina lewo";
+        else if("roslina".equals(prawo)) return "roslina prawo";
+        else if(CAPYBARA.equals(map[x][y])) {
+            if ("pies".equals(gora)) return "pies gora";
+            else if ("pies".equals(dol)) return "pies dol";
+            else if ("pies".equals(lewo)) return "pies lewo";
+            else if ("pies".equals(prawo)) return "pies prawo";
+            else if ("nic".equals(gora)) return "nic gora";
+            else if ("nic".equals(dol)) return "nic dol";
+            else if ("nic".equals(lewo)) return "nic lewo";
+            else if ("nic".equals(prawo)) return "nic prawo";
+        }
+        else if(DOG.equals(map[x][y])){
+            if ("kapibara".equals(gora)) return "kapibara gora";
+            else if ("kapibara".equals(dol)) return "kapibara dol";
+            else if ("kapibara".equals(lewo)) return "kapibara lewo";
+            else if ("kapibara".equals(prawo)) return "kapibara prawo";
+            else if ("nic".equals(gora)) return "nic gora";
+            else if ("nic".equals(dol)) return "nic dol";
+            else if ("nic".equals(lewo)) return "nic lewo";
+            else if ("nic".equals(prawo)) return "nic prawo";
+        }
+        return "COS ZEPSULO";
+    }
+
+    public void eat()
+    {
+        
+    }
+    /*public int sprawdz_sasiadow(int x, int y){
         //0-nic
         //1-drzewo lub krzak
         //2-pies
@@ -194,8 +290,11 @@ public class Simulation {
                 //else if(CAPYBARA.equals(map[x][y+1])) return 3;
                 //else if(EMPTY_FIELD.equals(map[x][y+1])) return 0;
             }
+
         return -1111111111;
     }
+    */
+
 /*
     public void stworz_symulacje() {
         //Przechodzenie na kolejne etapy symulacji

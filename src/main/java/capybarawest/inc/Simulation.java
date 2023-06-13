@@ -185,6 +185,12 @@ public class Simulation {
                         }
                     }
                 }
+                /*
+                if(!(CAPYBARA.equals(map[i][j]) || DOG.equals(map[i][j])))
+                {
+                    map[i][j] = WATER;
+                }
+                 */
             }
         }
     }
@@ -264,7 +270,7 @@ public class Simulation {
             if(plant.koordynata_ox == koordynataOX_roslina && plant.koordynata_oy == koordynataOY_roslina)
             {
                 //!!!!!!!!!!!!!!!!!!UUUUWAAGGGAAAAAAAAAAAAAAA TU TRZEBA ZMIENIC
-                plant.getDamage();
+                plant.getDamage(5);
                 if (plant.hp <= 0) {
                     licznik_zniszczonych_drzew++;
                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
@@ -285,7 +291,12 @@ public class Simulation {
         {
             for (Capybara kapibara : capybaraMap.values()) {
                 if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
-                    kapibara.eat(5);//5 - bo drzewo
+                    if(TREE.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                        kapibara.eat(5);
+                    }
+                    else if(BUSH.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                        kapibara.eat(3);
+                    }
                     break;
                 }
             }
@@ -295,7 +306,12 @@ public class Simulation {
         {
             for (Dog pies : dogMap.values()) {
                 if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
-                    pies.eat(3);
+                    if(TREE.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                        pies.eat(5);
+                    }
+                    else if(BUSH.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                        pies.eat(3);
+                    }
                     break;
                 }
             }
@@ -471,39 +487,6 @@ public class Simulation {
             }
         }
     }
-    /*public int sprawdz_sasiadow(int x, int y){
-        //0-nic
-        //1-drzewo lub krzak
-        //2-pies
-        //3-kapibara
-            if((x-1)>0){
-                if(TREE.equals(map[x-1][y]) || BUSH.equals(map[x-1][y])) return 1;
-                //else if(DOG.equals(map[x-1][y])) return 2;
-                //else if(CAPYBARA.equals(map[x-1][y])) return 3;
-                //else if(EMPTY_FIELD.equals(map[x-1][y])) return 0;
-            }
-            else if((x+1)<(rozmiar-1)){
-                if(TREE.equals(map[x+1][y]) || BUSH.equals(map[x+1][y])) return 1;
-                //else if(DOG.equals(map[x+1][y])) return 2;
-                //else if(CAPYBARA.equals(map[x+1][y])) return 3;
-                //else if(EMPTY_FIELD.equals(map[x+1][y])) return 0;
-            }
-            else if((y-1)>=0){
-                if(TREE.equals(map[x][y-1]) || BUSH.equals(map[x][y-1])) return 1;
-                //else if(DOG.equals(map[x][y-1])) return 2;
-                //else if(CAPYBARA.equals(map[x][y-1])) return 3;
-                //else if(EMPTY_FIELD.equals(map[x][y-1])) return 0;
-            }
-            else if((y+1)<(rozmiar-1)){
-                if(TREE.equals(map[x][y+1]) || BUSH.equals(map[x][y+1])) return 1;
-                //else if(DOG.equals(map[x][y+1])) return 2;
-                //else if(CAPYBARA.equals(map[x][y+1])) return 3;
-                //else if(EMPTY_FIELD.equals(map[x][y+1])) return 0;
-            }
-
-        return -1111111111;
-    }
-    */
 
 /*
     public void stworz_symulacje() {

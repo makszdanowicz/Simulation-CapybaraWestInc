@@ -159,7 +159,7 @@ public class Simulation {
                                 //metoda uciekaj
                             }
                             else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
-                                // metoda move
+                                move(a,b);
                             }
                         }
                         else if(DOG.equals(map[a][b])){
@@ -180,7 +180,7 @@ public class Simulation {
                                 //metoda atack
                             }
                             else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
-                               // move(a,b);
+                               move(a,b);
                             }
                         }
                     }

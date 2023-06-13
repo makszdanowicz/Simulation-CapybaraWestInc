@@ -10,6 +10,11 @@ public class Simulation {
     private static final String CAPYBARA = "C";
     private static final String EMPTY_FIELD = ".";
 
+    //Global
+    private static int licznik_zniszczonych_drzew = 0;
+    private static int licznik_zniszczonych_krzakow = 0;
+    private static int licznik_atakowanych_kapibar = 0;
+
     private int rozmiar;
     private int liczba_drzew;
     private int liczba_krzakow;
@@ -158,6 +163,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -182,6 +188,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -210,6 +217,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == (a + 1) && drzewo.koordynata_oy == b) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -234,6 +242,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == (a + 1) && krzak.koordynata_oy == b) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -262,6 +271,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b - 1) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -286,6 +296,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == a && krzak.koordynata_oy == b - 1) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -314,6 +325,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b + 1) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -338,6 +350,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == a && krzak.koordynata_oy == b + 1) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -371,6 +384,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == (a - 1) && drzewo.koordynata_oy == b) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -395,6 +409,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == (a - 1) && krzak.koordynata_oy == b) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -423,6 +438,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == (a + 1) && drzewo.koordynata_oy == b) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -447,6 +463,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == (a + 1) && krzak.koordynata_oy == b) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -475,6 +492,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b - 1) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -499,6 +517,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == a && krzak.koordynata_oy == b - 1) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -527,6 +546,7 @@ public class Simulation {
                                         if (drzewo.koordynata_ox == a && drzewo.koordynata_oy == b + 1) {
                                             drzewo.getDamage(5);
                                             if (drzewo.hp <= 0) {
+                                                licznik_zniszczonych_drzew++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Tree>> iterator = treeMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -551,6 +571,7 @@ public class Simulation {
                                         if (krzak.koordynata_ox == a && krzak.koordynata_oy == b + 1) {
                                             krzak.getDamage(3);
                                             if (krzak.hp <= 0) {
+                                                licznik_zniszczonych_krzakow++;
                                                 //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                                                 Iterator<Map.Entry<Integer, Bush>> iterator = bushMap.entrySet().iterator();
                                                 while (iterator.hasNext()) {
@@ -599,6 +620,10 @@ public class Simulation {
                                     }
                                     else if (Objects.equals(map[a - 1][b], "D")) {
                                         kapibara1.getDamage(50);
+                                        if(kapibara1.hp <= 0)
+                                        {
+                                            licznik_atakowanych_kapibar++;
+                                        }
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
                                         String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
@@ -650,6 +675,10 @@ public class Simulation {
                                     }
                                     else if (Objects.equals(map[a + 1][b], "D")) {
                                         kapibara1.getDamage(50);
+                                        if(kapibara1.hp <= 0)
+                                        {
+                                            licznik_atakowanych_kapibar++;
+                                        }
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
                                         String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
@@ -701,6 +730,10 @@ public class Simulation {
                                     }
                                     else if (Objects.equals(map[a][b + 1], "D")) {
                                         kapibara1.getDamage(50);
+                                        if(kapibara1.hp <= 0)
+                                        {
+                                            licznik_atakowanych_kapibar++;
+                                        }
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
                                         String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
@@ -751,6 +784,10 @@ public class Simulation {
                                         map[a][b] = ".";
                                     } else if (Objects.equals(map[a][b - 1], "D")) {
                                         kapibara1.getDamage(50);
+                                        if(kapibara1.hp <= 0)
+                                        {
+                                            licznik_atakowanych_kapibar++;
+                                        }
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
                                         String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
@@ -930,7 +967,12 @@ public class Simulation {
             System.out.println(key + ": " + value);
         }
 
-
+        System.out.print("Liczba zniszczonych drzew: ");
+        System.out.println(licznik_zniszczonych_drzew);
+        System.out.print("Liczba zniszczonych krzakow: ");
+        System.out.println(licznik_zniszczonych_krzakow);
+        System.out.print("Liczba zaatakowanych kapibar: ");
+        System.out.println(licznik_atakowanych_kapibar);
     }
 }
 

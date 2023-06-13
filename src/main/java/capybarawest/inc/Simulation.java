@@ -14,6 +14,7 @@ public class Simulation {
     private static int licznik_zniszczonych_drzew = 0;
     private static int licznik_zniszczonych_krzakow = 0;
     private static int licznik_atakowanych_kapibar = 0;
+    private static int indeks_roslin = 0;
 
     private int rozmiar;
     private int liczba_drzew;
@@ -21,9 +22,7 @@ public class Simulation {
     private int liczba_kapibar;
     private int liczba_psow;
     private String[][] map;
-    Map<Integer, Tree> treeMap = new HashMap<>();
-
-    Map<Integer, Bush> bushMap = new HashMap<>();
+    Map<Integer, Plants> plantsMap = new HashMap<>();
     Map<Integer, Capybara> capybaraMap = new HashMap<>();
     Map<Integer, Dog> dogMap = new HashMap<>();
 
@@ -56,7 +55,6 @@ public class Simulation {
     }
 
     public void umiescDrzewa() {
-        int indeks_drzewa = 0;
         for (int k = 0; k < liczba_drzew; k++) {
             int x, y;
             do{
@@ -65,18 +63,18 @@ public class Simulation {
             } while (TREE.equals(map[x][y]));
             map[x][y] = TREE;
             Tree tree = new Tree(50, x, y);
-            indeks_drzewa++;
-            treeMap.put(indeks_drzewa, tree);
+            indeks_roslin++;
+            plantsMap.put(indeks_roslin, tree);
         }
-        for (Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
+
+        for (Map.Entry<Integer, Plants> entry : plantsMap.entrySet()){
             Integer key = entry.getKey();
-            Tree value = entry.getValue();
+            Plants value = entry.getValue();
             System.out.println("Drzewo nr " + key + ":" + value);
         }
     }
 
     public void umiescKrzaki(){
-        int indeks_krzaka = 0;
         for(int k = 0; k < liczba_krzakow; k++){
             int x,y;
             do{
@@ -85,12 +83,13 @@ public class Simulation {
             } while (TREE.equals(map[x][y]) || BUSH.equals(map[x][y]));
             map[x][y] = BUSH;
             Bush krzak = new Bush(30, x, y);
-            indeks_krzaka++;
-            bushMap.put(indeks_krzaka, krzak);
+            indeks_roslin++;
+            plantsMap.put(indeks_roslin, krzak);
         }
-        for (Map.Entry<Integer, Bush> entry : bushMap.entrySet()){
+
+        for (Map.Entry<Integer, Plants> entry : plantsMap.entrySet()){
             Integer key = entry.getKey();
-            Bush value = entry.getValue();
+            Plants value = entry.getValue();
             System.out.println("Krzak nr " + key + ":" + value);
         }
     }
@@ -134,7 +133,70 @@ public class Simulation {
             System.out.println("Pies nr " + key + ":" + value);
         }
     }
+    public void stworz_symulacje() {
+        for (int i = 1; i < rozmiar; i++) {
+            for (int j = 0; j < rozmiar; j++) {
 
+                //Dzialanie symulacji(sprawdzanie warunkow)
+                for (int a = 1; a < rozmiar; a++) {
+                    for (int b = 0; b < rozmiar; b++) {
+                        int sasiad;
+                        if(CAPYBARA.equals(map[a][b])) {
+                            sasiad = sprawdz_sasiadow(a, b);
+                            System.out.println(sasiad);
+                            if(sasiad == 1){
+                                //metoda eat
+                            }
+                            else if(sasiad == 2){
+                                //metoda uciekaj
+                            }
+                            else if(sasiad == 3){
+                                //losuj i move
+                            }
+                            else if(sasiad == 0){
+                                //move
+                            }
+                        }
+                        else if(DOG.equals(map[a][b])){
+                            sasiad = sprawdz_sasiadow(a,b);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public int sprawdz_sasiadow(int x, int y){
+        //0-nic
+        //1-drzewo lub krzak
+        //2-pies
+        //3-kapibara
+            if((x-1)>0){
+                if(TREE.equals(map[x-1][y]) || BUSH.equals(map[x-1][y])) return 1;
+                //else if(DOG.equals(map[x-1][y])) return 2;
+                //else if(CAPYBARA.equals(map[x-1][y])) return 3;
+                //else if(EMPTY_FIELD.equals(map[x-1][y])) return 0;
+            }
+            else if((x+1)<(rozmiar-1)){
+                if(TREE.equals(map[x+1][y]) || BUSH.equals(map[x+1][y])) return 1;
+                //else if(DOG.equals(map[x+1][y])) return 2;
+                //else if(CAPYBARA.equals(map[x+1][y])) return 3;
+                //else if(EMPTY_FIELD.equals(map[x+1][y])) return 0;
+            }
+            else if((y-1)>=0){
+                if(TREE.equals(map[x][y-1]) || BUSH.equals(map[x][y-1])) return 1;
+                //else if(DOG.equals(map[x][y-1])) return 2;
+                //else if(CAPYBARA.equals(map[x][y-1])) return 3;
+                //else if(EMPTY_FIELD.equals(map[x][y-1])) return 0;
+            }
+            else if((y+1)<(rozmiar-1)){
+                if(TREE.equals(map[x][y+1]) || BUSH.equals(map[x][y+1])) return 1;
+                //else if(DOG.equals(map[x][y+1])) return 2;
+                //else if(CAPYBARA.equals(map[x][y+1])) return 3;
+                //else if(EMPTY_FIELD.equals(map[x][y+1])) return 0;
+            }
+        return -1111111111;
+    }
+/*
     public void stworz_symulacje() {
         //Przechodzenie na kolejne etapy symulacji
         for (int i = 1; i < rozmiar; i++) {
@@ -912,7 +974,7 @@ public class Simulation {
             System.out.println(" ");
         }
     }
-
+*/
     public void wyswietl_mape() {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {
@@ -933,23 +995,26 @@ public class Simulation {
             System.out.println(" ");
         }
     }
-
     public void wypisz_wyniki(){
         //Wypisanie elementow kolekcji treeMap
         System.out.println("Drzewa po symulacji:");
-        for(Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
+        /*for(Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
             Integer key = entry.getKey();
             Tree value = entry.getValue();
             System.out.println(key + ": " + value);
         }
 
+         */
+
         System.out.println("Krzaki po symulacji:");
-        for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+        /*for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
         {
             Integer key = entry.getKey();
             Bush value = entry.getValue();
             System.out.println(key + ": " + value);
         }
+
+         */
 
         System.out.println("Kapibary po symulacji:");
         for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet())

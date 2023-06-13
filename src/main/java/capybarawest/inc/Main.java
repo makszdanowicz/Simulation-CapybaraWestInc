@@ -28,7 +28,7 @@ public class Main {
         symulacja.umiescPsow();
         symulacja.wyswietl_mape();
         symulacja.stworz_symulacje();
-        symulacja.wypisz_wyniki();
+        //symulacja.wypisz_wyniki();
     }
 
 }

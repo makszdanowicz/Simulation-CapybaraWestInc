@@ -131,10 +131,11 @@ public class Simulation {
     }
 
     public void stworz_symulacje() {
+        //Przechodzenie na kolejne etapy symulacji
         for (int i = 1; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {
 
-                //Dzialanie symulacji
+                //Dzialanie symulacji(sprawdzanie warunkow)
                 for (int a = 1; a < rozmiar; a++) {
                     for (int b = 0; b < rozmiar; b++) {
 
@@ -144,6 +145,7 @@ public class Simulation {
 
                         //Sprawdzenie dla kapibar
                         if (Objects.equals(map[a][b], "C")) {
+                            //Czy jest roslina na gorze
                             if (a - 1 > 0) {
                                 if (Objects.equals(map[a - 1][b], "T")) {
                                     for (Capybara kapibara : capybaraMap.values()) {
@@ -194,7 +196,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if (a < rozmiar - 1) {
+                            }
+                            //Czy jest roslina na dole
+                            else if (a < rozmiar - 1) {
                                 if (Objects.equals(map[a + 1][b], "T")) {
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
@@ -244,7 +248,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if (b - 1 >= 0) {
+                            }
+                            //Czy jest roslina z lewej strony
+                            else if (b - 1 >= 0) {
                                 if (Objects.equals(map[a][b - 1], "T")) {
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
@@ -294,7 +300,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if (b + 1 < rozmiar) {
+                            }
+                            //Czy jest roslina z prawej strony
+                            else if (b + 1 < rozmiar) {
                                 if (Objects.equals(map[a][b + 1], "T")) {
                                     for (Capybara kapibara : capybaraMap.values()) {
                                         if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
@@ -350,6 +358,7 @@ public class Simulation {
 
                         //Sprawdzenie dla psow
                         else if (Objects.equals(map[a][b], "D")) {
+                            //Czy jest roslina na gorze
                             if (a - 1 > 0) {
                                 if (Objects.equals(map[a - 1][b], "T")) {
                                     for (Dog pies : dogMap.values()) {
@@ -400,7 +409,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if (a < rozmiar - 1) {
+                            }
+                            //Czy jest roslina na dole
+                            else if (a < rozmiar - 1) {
                                 if (Objects.equals(map[a + 1][b], "T")) {
                                     for (Dog pies : dogMap.values()) {
                                         if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
@@ -450,7 +461,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if (b - 1 >= 0) {
+                            }
+                            //Czy jest roslina z lewej strony
+                            else if (b - 1 >= 0) {
                                 if (Objects.equals(map[a][b - 1], "T")) {
                                     for (Dog pies : dogMap.values()) {
                                         if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
@@ -500,7 +513,9 @@ public class Simulation {
                                         }
                                     }
                                 }
-                            } else if (b + 1 < rozmiar) {
+                            }
+                            //Czy jest roslina z prawej strony
+                            else if (b + 1 < rozmiar) {
                                 if (Objects.equals(map[a][b + 1], "T")) {
                                     for (Dog pies : dogMap.values()) {
                                         if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
@@ -555,11 +570,13 @@ public class Simulation {
 
 
                         //JESLI NIE MA ZADNYCH ROSLIN KOLO ZWIERZA, TO RUSZA SIE
-                        else if (a - 1 > 0 && a + 1 < rozmiar && b + 1 < rozmiar && b - 1 > 0){
+                        else if (a - 1 > 0 && a + 1 < rozmiar && b + 1 < rozmiar && b - 1 > 0)
+                        {
                             if (map[a - 1][b] != "T" && map[a - 1][b] != "B" &&
                                 map[a + 1][b] != "T" && map[a + 1][b] != "B" &&
                                 map[a][b - 1] != "T" && map[a][b - 1] != "B" &&
-                                map[a][b + 1] != "T" && map[a][b + 1] != "B") {
+                                map[a][b + 1] != "T" && map[a][b + 1] != "B")
+                            {
                             Random random = new Random();
                             String[] kierunki = {"gora", "dol", "lewo", "prawo"};
                             String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
@@ -579,7 +596,8 @@ public class Simulation {
                                         map[a - 1][b] = "C";
                                         kapibara1.koordynata_ox = a - 1;
                                         map[a][b] = ".";
-                                    } else if (Objects.equals(map[a - 1][b], "D")) {
+                                    }
+                                    else if (Objects.equals(map[a - 1][b], "D")) {
                                         kapibara1.getDamage(50);
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
@@ -623,12 +641,14 @@ public class Simulation {
                                                 break;
                                         }
                                     }
-                                } else if (Objects.equals(losowy_kierunek, "dol")) {
+                                }
+                                else if (Objects.equals(losowy_kierunek, "dol")) {
                                     if (Objects.equals(map[a + 1][b], ".")) {
                                         map[a + 1][b] = "C";
                                         kapibara1.koordynata_ox = a + 1;
                                         map[a][b] = ".";
-                                    } else if (Objects.equals(map[a + 1][b], "D")) {
+                                    }
+                                    else if (Objects.equals(map[a + 1][b], "D")) {
                                         kapibara1.getDamage(50);
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
@@ -672,12 +692,14 @@ public class Simulation {
                                                 break;
                                         }
                                     }
-                                } else if (Objects.equals(losowy_kierunek, "prawo")) {
+                                }
+                                else if (Objects.equals(losowy_kierunek, "prawo")) {
                                     if (Objects.equals(map[a][b + 1], ".")) {
                                         map[a][b + 1] = "C";
                                         kapibara1.koordynata_oy = b + 1;
                                         map[a][b] = ".";
-                                    } else if (Objects.equals(map[a][b + 1], "D")) {
+                                    }
+                                    else if (Objects.equals(map[a][b + 1], "D")) {
                                         kapibara1.getDamage(50);
                                         Random random_kapibar = new Random();
                                         String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
@@ -721,7 +743,8 @@ public class Simulation {
                                                 break;
                                         }
                                     }
-                                } else if (Objects.equals(losowy_kierunek, "lewo")) {
+                                }
+                                else if (Objects.equals(losowy_kierunek, "lewo")) {
                                     if (Objects.equals(map[a][b - 1], ".")) {
                                         map[a][b - 1] = "C";
                                         kapibara1.koordynata_oy = b - 1;
@@ -789,19 +812,22 @@ public class Simulation {
                                         pies1.koordynata_ox = a - 1;
                                         map[a][b] = ".";
                                     }
-                                } else if (Objects.equals(losowy_kierunek, "dol")) {
+                                }
+                                else if (Objects.equals(losowy_kierunek, "dol")) {
                                     if (Objects.equals(map[a + 1][b], ".")) {
                                         map[a + 1][b] = "D";
                                         pies1.koordynata_ox = a + 1;
                                         map[a][b] = ".";
                                     }
-                                } else if (Objects.equals(losowy_kierunek, "prawo")) {
+                                }
+                                else if (Objects.equals(losowy_kierunek, "prawo")) {
                                     if (Objects.equals(map[a][b + 1], ".")) {
                                         map[a][b + 1] = "D";
                                         pies1.koordynata_oy = b + 1;
                                         map[a][b] = ".";
                                     }
-                                } else if (Objects.equals(losowy_kierunek, "lewo")) {
+                                }
+                                else if (Objects.equals(losowy_kierunek, "lewo")) {
                                     if (Objects.equals(map[a][b - 1], ".")) {
                                         map[a][b - 1] = "D";
                                         pies1.koordynata_oy = b - 1;
@@ -809,10 +835,11 @@ public class Simulation {
                                     }
                                 }
                             }
-                        }
+                          }
                         }
                     }
                 }
+                //Koniec sprawdzania warunkow dla psow i kapibar
 
                 if(!("C".equals(map[i][j]) || "D".equals(map[i][j])))
                 {
@@ -826,15 +853,20 @@ public class Simulation {
                 for (int n = 0; n < rozmiar; n++) {
                     if (map[k][n] == "W") {
                         System.out.print(ColorClass.BLUE_BOLD + map[k][n] + " ");
-                    } else if (map[k][n] == "T") {
+                    }
+                    else if (map[k][n] == "T") {
                         System.out.print(ColorClass.GREEN_BOLD + map[k][n] + " ");
-                    } else if (map[k][n] == "B") {
+                    }
+                    else if (map[k][n] == "B") {
                         System.out.print(ColorClass.GREENBUSH_BOLD + map[k][n] + " ");
-                    } else if (map[k][n] == "C") {
+                    }
+                    else if (map[k][n] == "C") {
                         System.out.print(ColorClass.ORANGE_BOLD + map[k][n] + " ");
-                    } else if (map[k][n] == "D") {
+                    }
+                    else if (map[k][n] == "D") {
                         System.out.print(ColorClass.WHITE_BOLD + map[k][n] + " ");
-                    } else {
+                    }
+                    else {
                         System.out.print(ColorClass.BLACK_BOLD + map[k][n] + " ");
                     }
                 }

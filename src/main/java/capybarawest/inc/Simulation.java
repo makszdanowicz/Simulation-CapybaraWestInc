@@ -176,8 +176,17 @@ public class Simulation {
                             else if("roslina prawo".equals(sasiad)){
                                 eat(a,b,a,b+1);
                             }
-                            else if("kapibara gora".equals(sasiad) || "kapibara dol".equals(sasiad) || "kapibara lewo".equals(sasiad) || "kapibara prawo".equals(sasiad)){
+                            else if("kapibara gora".equals(sasiad)){
                                 //metoda atack
+                            }
+                            else if("kapibara dol".equals(sasiad)){
+                                //
+                            }
+                            else if("kapibara lewo".equals(sasiad)){
+                                //
+                            }
+                            else if("kapibara prawo".equals(sasiad)){
+                                //
                             }
                             else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
                                move(a,b);
@@ -487,7 +496,20 @@ public class Simulation {
             }
         }
     }
-
+    /*
+    public void atakuj(int x, int y, int koordynata_ox_kapibary, int koordynata_oy_kapibary ){
+        for (Capybara kapibara : capybaraMap.values()) {
+            if (kapibara.koordynata_ox == koordynata_ox_kapibary && kapibara.koordynata_oy == koordynata_oy_kapibary) {
+                kapibara.getDamage(50);
+                if(kapibara.hp <= 0)
+                {
+                    //licznik_atakowanych_kapibar++;
+                }
+                break;
+            }
+        }
+    }
+    */
 /*
     public void stworz_symulacje() {
         //Przechodzenie na kolejne etapy symulacji

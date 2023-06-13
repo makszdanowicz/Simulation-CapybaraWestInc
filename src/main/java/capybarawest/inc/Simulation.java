@@ -594,285 +594,285 @@ public class Simulation {
                         else if (a - 1 > 0 && a + 1 < rozmiar && b + 1 < rozmiar && b - 1 > 0)
                         {
                             if (map[a - 1][b] != "T" && map[a - 1][b] != "B" &&
-                                map[a + 1][b] != "T" && map[a + 1][b] != "B" &&
-                                map[a][b - 1] != "T" && map[a][b - 1] != "B" &&
-                                map[a][b + 1] != "T" && map[a][b + 1] != "B")
+                                    map[a + 1][b] != "T" && map[a + 1][b] != "B" &&
+                                    map[a][b - 1] != "T" && map[a][b - 1] != "B" &&
+                                    map[a][b + 1] != "T" && map[a][b + 1] != "B")
                             {
-                            Random random = new Random();
-                            String[] kierunki = {"gora", "dol", "lewo", "prawo"};
-                            String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                                Random random = new Random();
+                                String[] kierunki = {"gora", "dol", "lewo", "prawo"};
+                                String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
 
 
-                            //RUCH KAPIBAR
-                            if (Objects.equals(map[a][b], "C")) {
-                                Capybara kapibara1 = new Capybara(); //referencja do komurki w pamieci, przechowujacej obiekt kapibara
-                                for (Capybara kapibara : capybaraMap.values()) {
-                                    if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
-                                        kapibara1 = kapibara;
-                                        break;
-                                    }
-                                }
-                                if (Objects.equals(losowy_kierunek, "gora")) {
-                                    if (Objects.equals(map[a - 1][b], ".")) {
-                                        map[a - 1][b] = "C";
-                                        kapibara1.koordynata_ox = a - 1;
-                                        map[a][b] = ".";
-                                    }
-                                    else if (Objects.equals(map[a - 1][b], "D")) {
-                                        kapibara1.getDamage(50);
-                                        if(kapibara1.hp <= 0)
-                                        {
-                                            licznik_atakowanych_kapibar++;
-                                        }
-                                        Random random_kapibar = new Random();
-                                        String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
-                                        String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
-                                        switch (losowy_kierunek_kapibar) {
-                                            case "gora":
-                                                if (a - 2 > 0) {
-                                                    if (Objects.equals(map[a - 2][b], ".")) {
-                                                        map[a - 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a - 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
-                                            case "dol":
-                                                if (a + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a + 2][b], ".")) {
-                                                        map[a + 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a + 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
-                                            case "prawo":
-                                                if (b + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a][b + 2], ".")) {
-                                                        map[a][b + 2] = "C";
-                                                        kapibara1.koordynata_oy = b + 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
-                                            case "lewo":
-                                                if (b - 2 > 0) {
-                                                    if (Objects.equals(map[a][b - 2], ".")) {
-                                                        map[a][b - 2] = "C";
-                                                        kapibara1.koordynata_oy = b - 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
+                                //RUCH KAPIBAR
+                                if (Objects.equals(map[a][b], "C")) {
+                                    Capybara kapibara1 = new Capybara(); //referencja do komurki w pamieci, przechowujacej obiekt kapibara
+                                    for (Capybara kapibara : capybaraMap.values()) {
+                                        if (kapibara.koordynata_ox == a && kapibara.koordynata_oy == b) {
+                                            kapibara1 = kapibara;
+                                            break;
                                         }
                                     }
-                                }
-                                else if (Objects.equals(losowy_kierunek, "dol")) {
-                                    if (Objects.equals(map[a + 1][b], ".")) {
-                                        map[a + 1][b] = "C";
-                                        kapibara1.koordynata_ox = a + 1;
-                                        map[a][b] = ".";
-                                    }
-                                    else if (Objects.equals(map[a + 1][b], "D")) {
-                                        kapibara1.getDamage(50);
-                                        if(kapibara1.hp <= 0)
-                                        {
-                                            licznik_atakowanych_kapibar++;
+                                    if (Objects.equals(losowy_kierunek, "gora")) {
+                                        if (Objects.equals(map[a - 1][b], ".")) {
+                                            map[a - 1][b] = "C";
+                                            kapibara1.koordynata_ox = a - 1;
+                                            map[a][b] = ".";
                                         }
-                                        Random random_kapibar = new Random();
-                                        String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
-                                        String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
-                                        switch (losowy_kierunek_kapibar) {
-                                            case "gora":
-                                                if (a - 2 > 0) {
-                                                    if (Objects.equals(map[a - 2][b], ".")) {
-                                                        map[a - 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a - 2;
-                                                        map[a][b] = ".";
+                                        else if (Objects.equals(map[a - 1][b], "D")) {
+                                            kapibara1.getDamage(50);
+                                            if(kapibara1.hp <= 0)
+                                            {
+                                                licznik_atakowanych_kapibar++;
+                                            }
+                                            Random random_kapibar = new Random();
+                                            String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
+                                            String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
+                                            switch (losowy_kierunek_kapibar) {
+                                                case "gora":
+                                                    if (a - 2 > 0) {
+                                                        if (Objects.equals(map[a - 2][b], ".")) {
+                                                            map[a - 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a - 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                            case "dol":
-                                                if (a + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a + 2][b], ".")) {
-                                                        map[a + 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a + 2;
-                                                        map[a][b] = ".";
+                                                    break;
+                                                case "dol":
+                                                    if (a + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a + 2][b], ".")) {
+                                                            map[a + 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a + 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                            case "prawo":
-                                                if (b + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a][b + 2], ".")) {
-                                                        map[a][b + 2] = "C";
-                                                        kapibara1.koordynata_oy = b + 2;
-                                                        map[a][b] = ".";
+                                                    break;
+                                                case "prawo":
+                                                    if (b + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a][b + 2], ".")) {
+                                                            map[a][b + 2] = "C";
+                                                            kapibara1.koordynata_oy = b + 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                            case "lewo":
-                                                if (b - 2 > 0) {
-                                                    if (Objects.equals(map[a][b - 2], ".")) {
-                                                        map[a][b - 2] = "C";
-                                                        kapibara1.koordynata_oy = b - 2;
-                                                        map[a][b] = ".";
+                                                    break;
+                                                case "lewo":
+                                                    if (b - 2 > 0) {
+                                                        if (Objects.equals(map[a][b - 2], ".")) {
+                                                            map[a][b - 2] = "C";
+                                                            kapibara1.koordynata_oy = b - 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                        }
-                                    }
-                                }
-                                else if (Objects.equals(losowy_kierunek, "prawo")) {
-                                    if (Objects.equals(map[a][b + 1], ".")) {
-                                        map[a][b + 1] = "C";
-                                        kapibara1.koordynata_oy = b + 1;
-                                        map[a][b] = ".";
-                                    }
-                                    else if (Objects.equals(map[a][b + 1], "D")) {
-                                        kapibara1.getDamage(50);
-                                        if(kapibara1.hp <= 0)
-                                        {
-                                            licznik_atakowanych_kapibar++;
-                                        }
-                                        Random random_kapibar = new Random();
-                                        String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
-                                        String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
-                                        switch (losowy_kierunek_kapibar) {
-                                            case "gora":
-                                                if (a - 2 > 0) {
-                                                    if (Objects.equals(map[a - 2][b], ".")) {
-                                                        map[a - 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a - 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
-                                            case "dol":
-                                                if (a + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a + 2][b], ".")) {
-                                                        map[a + 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a + 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
-                                            case "prawo":
-                                                if (b + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a][b + 2], ".")) {
-                                                        map[a][b + 2] = "C";
-                                                        kapibara1.koordynata_oy = b + 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
-                                            case "lewo":
-                                                if (b - 2 > 0) {
-                                                    if (Objects.equals(map[a][b - 2], ".")) {
-                                                        map[a][b - 2] = "C";
-                                                        kapibara1.koordynata_oy = b - 2;
-                                                        map[a][b] = ".";
-                                                    }
-                                                }
-                                                break;
+                                                    break;
+                                            }
                                         }
                                     }
-                                }
-                                else if (Objects.equals(losowy_kierunek, "lewo")) {
-                                    if (Objects.equals(map[a][b - 1], ".")) {
-                                        map[a][b - 1] = "C";
-                                        kapibara1.koordynata_oy = b - 1;
-                                        map[a][b] = ".";
-                                    } else if (Objects.equals(map[a][b - 1], "D")) {
-                                        kapibara1.getDamage(50);
-                                        if(kapibara1.hp <= 0)
-                                        {
-                                            licznik_atakowanych_kapibar++;
+                                    else if (Objects.equals(losowy_kierunek, "dol")) {
+                                        if (Objects.equals(map[a + 1][b], ".")) {
+                                            map[a + 1][b] = "C";
+                                            kapibara1.koordynata_ox = a + 1;
+                                            map[a][b] = ".";
                                         }
-                                        Random random_kapibar = new Random();
-                                        String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
-                                        String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
-                                        switch (losowy_kierunek_kapibar) {
-                                            case "gora":
-                                                if (a - 2 > 0) {
-                                                    if (Objects.equals(map[a - 2][b], ".")) {
-                                                        map[a - 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a - 2;
-                                                        map[a][b] = ".";
+                                        else if (Objects.equals(map[a + 1][b], "D")) {
+                                            kapibara1.getDamage(50);
+                                            if(kapibara1.hp <= 0)
+                                            {
+                                                licznik_atakowanych_kapibar++;
+                                            }
+                                            Random random_kapibar = new Random();
+                                            String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
+                                            String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
+                                            switch (losowy_kierunek_kapibar) {
+                                                case "gora":
+                                                    if (a - 2 > 0) {
+                                                        if (Objects.equals(map[a - 2][b], ".")) {
+                                                            map[a - 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a - 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                            case "dol":
-                                                if (a + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a + 2][b], ".")) {
-                                                        map[a + 2][b] = "C";
-                                                        kapibara1.koordynata_ox = a + 2;
-                                                        map[a][b] = ".";
+                                                    break;
+                                                case "dol":
+                                                    if (a + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a + 2][b], ".")) {
+                                                            map[a + 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a + 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                            case "prawo":
-                                                if (b + 2 < rozmiar) {
-                                                    if (Objects.equals(map[a][b + 2], ".")) {
-                                                        map[a][b + 2] = "C";
-                                                        kapibara1.koordynata_oy = b + 2;
-                                                        map[a][b] = ".";
+                                                    break;
+                                                case "prawo":
+                                                    if (b + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a][b + 2], ".")) {
+                                                            map[a][b + 2] = "C";
+                                                            kapibara1.koordynata_oy = b + 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
-                                            case "lewo":
-                                                if (b - 2 > 0) {
-                                                    if (Objects.equals(map[a][b - 2], ".")) {
-                                                        map[a][b - 2] = "C";
-                                                        kapibara1.koordynata_oy = b - 2;
-                                                        map[a][b] = ".";
+                                                    break;
+                                                case "lewo":
+                                                    if (b - 2 > 0) {
+                                                        if (Objects.equals(map[a][b - 2], ".")) {
+                                                            map[a][b - 2] = "C";
+                                                            kapibara1.koordynata_oy = b - 2;
+                                                            map[a][b] = ".";
+                                                        }
                                                     }
-                                                }
-                                                break;
+                                                    break;
+                                            }
                                         }
                                     }
-                                }
+                                    else if (Objects.equals(losowy_kierunek, "prawo")) {
+                                        if (Objects.equals(map[a][b + 1], ".")) {
+                                            map[a][b + 1] = "C";
+                                            kapibara1.koordynata_oy = b + 1;
+                                            map[a][b] = ".";
+                                        }
+                                        else if (Objects.equals(map[a][b + 1], "D")) {
+                                            kapibara1.getDamage(50);
+                                            if(kapibara1.hp <= 0)
+                                            {
+                                                licznik_atakowanych_kapibar++;
+                                            }
+                                            Random random_kapibar = new Random();
+                                            String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
+                                            String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
+                                            switch (losowy_kierunek_kapibar) {
+                                                case "gora":
+                                                    if (a - 2 > 0) {
+                                                        if (Objects.equals(map[a - 2][b], ".")) {
+                                                            map[a - 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a - 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                                case "dol":
+                                                    if (a + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a + 2][b], ".")) {
+                                                            map[a + 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a + 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                                case "prawo":
+                                                    if (b + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a][b + 2], ".")) {
+                                                            map[a][b + 2] = "C";
+                                                            kapibara1.koordynata_oy = b + 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                                case "lewo":
+                                                    if (b - 2 > 0) {
+                                                        if (Objects.equals(map[a][b - 2], ".")) {
+                                                            map[a][b - 2] = "C";
+                                                            kapibara1.koordynata_oy = b - 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    else if (Objects.equals(losowy_kierunek, "lewo")) {
+                                        if (Objects.equals(map[a][b - 1], ".")) {
+                                            map[a][b - 1] = "C";
+                                            kapibara1.koordynata_oy = b - 1;
+                                            map[a][b] = ".";
+                                        } else if (Objects.equals(map[a][b - 1], "D")) {
+                                            kapibara1.getDamage(50);
+                                            if(kapibara1.hp <= 0)
+                                            {
+                                                licznik_atakowanych_kapibar++;
+                                            }
+                                            Random random_kapibar = new Random();
+                                            String[] kierunki_kapibar = {"gora", "dol", "lewo", "prawo"};
+                                            String losowy_kierunek_kapibar = kierunki_kapibar[random.nextInt(kierunki_kapibar.length)];
+                                            switch (losowy_kierunek_kapibar) {
+                                                case "gora":
+                                                    if (a - 2 > 0) {
+                                                        if (Objects.equals(map[a - 2][b], ".")) {
+                                                            map[a - 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a - 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                                case "dol":
+                                                    if (a + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a + 2][b], ".")) {
+                                                            map[a + 2][b] = "C";
+                                                            kapibara1.koordynata_ox = a + 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                                case "prawo":
+                                                    if (b + 2 < rozmiar) {
+                                                        if (Objects.equals(map[a][b + 2], ".")) {
+                                                            map[a][b + 2] = "C";
+                                                            kapibara1.koordynata_oy = b + 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                                case "lewo":
+                                                    if (b - 2 > 0) {
+                                                        if (Objects.equals(map[a][b - 2], ".")) {
+                                                            map[a][b - 2] = "C";
+                                                            kapibara1.koordynata_oy = b - 2;
+                                                            map[a][b] = ".";
+                                                        }
+                                                    }
+                                                    break;
+                                            }
+                                        }
+                                    }
 
 
+                                }
+                                //RUCH PSOW
+                                else if (Objects.equals(map[a][b], "D")) {
+                                    Dog pies1 = new Dog();
+                                    for (Dog pies : dogMap.values()) {
+                                        if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
+                                            pies1 = pies;
+                                            break;
+                                        }
+                                    }
+                                    if (Objects.equals(losowy_kierunek, "gora")) {
+                                        if (Objects.equals(map[a - 1][b], ".")) {
+                                            map[a - 1][b] = "D";
+                                            pies1.koordynata_ox = a - 1;
+                                            map[a][b] = ".";
+                                        }
+                                    }
+                                    else if (Objects.equals(losowy_kierunek, "dol")) {
+                                        if (Objects.equals(map[a + 1][b], ".")) {
+                                            map[a + 1][b] = "D";
+                                            pies1.koordynata_ox = a + 1;
+                                            map[a][b] = ".";
+                                        }
+                                    }
+                                    else if (Objects.equals(losowy_kierunek, "prawo")) {
+                                        if (Objects.equals(map[a][b + 1], ".")) {
+                                            map[a][b + 1] = "D";
+                                            pies1.koordynata_oy = b + 1;
+                                            map[a][b] = ".";
+                                        }
+                                    }
+                                    else if (Objects.equals(losowy_kierunek, "lewo")) {
+                                        if (Objects.equals(map[a][b - 1], ".")) {
+                                            map[a][b - 1] = "D";
+                                            pies1.koordynata_oy = b - 1;
+                                            map[a][b] = ".";
+                                        }
+                                    }
+                                }
                             }
-                            //RUCH PSOW
-                            else if (Objects.equals(map[a][b], "D")) {
-                                Dog pies1 = new Dog();
-                                for (Dog pies : dogMap.values()) {
-                                    if (pies.koordynata_ox == a && pies.koordynata_oy == b) {
-                                        pies1 = pies;
-                                        break;
-                                    }
-                                }
-                                if (Objects.equals(losowy_kierunek, "gora")) {
-                                    if (Objects.equals(map[a - 1][b], ".")) {
-                                        map[a - 1][b] = "D";
-                                        pies1.koordynata_ox = a - 1;
-                                        map[a][b] = ".";
-                                    }
-                                }
-                                else if (Objects.equals(losowy_kierunek, "dol")) {
-                                    if (Objects.equals(map[a + 1][b], ".")) {
-                                        map[a + 1][b] = "D";
-                                        pies1.koordynata_ox = a + 1;
-                                        map[a][b] = ".";
-                                    }
-                                }
-                                else if (Objects.equals(losowy_kierunek, "prawo")) {
-                                    if (Objects.equals(map[a][b + 1], ".")) {
-                                        map[a][b + 1] = "D";
-                                        pies1.koordynata_oy = b + 1;
-                                        map[a][b] = ".";
-                                    }
-                                }
-                                else if (Objects.equals(losowy_kierunek, "lewo")) {
-                                    if (Objects.equals(map[a][b - 1], ".")) {
-                                        map[a][b - 1] = "D";
-                                        pies1.koordynata_oy = b - 1;
-                                        map[a][b] = ".";
-                                    }
-                                }
-                            }
-                          }
                         }
                     }
                 }

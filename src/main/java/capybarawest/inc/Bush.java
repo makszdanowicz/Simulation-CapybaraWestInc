@@ -10,7 +10,7 @@ public class Bush extends Plants{
 
     @Override
     public double getDamage(double damage) {
-        return super.getDamage(damage);
+        return super.getDamage(3);
     }
 
     @Override

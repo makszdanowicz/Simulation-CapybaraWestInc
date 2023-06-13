@@ -144,16 +144,16 @@ public class Simulation {
                         if(CAPYBARA.equals(map[a][b])) {
                             sasiad = sprawdz_sasiadow(a, b);
                             if("roslina gora".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a-1,b);
                             }
                             else if("roslina dol".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a+1,b);
                             }
                             else if("roslina lewo".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a,b-1);
                             }
                             else if("roslina prawo".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a,b+1);
                             }
                             else if("pies gora".equals(sasiad) || "pies dol".equals(sasiad) || "pies lewo".equals(sasiad) || "pies prawo".equals(sasiad)){
                                 //metoda uciekaj
@@ -165,22 +165,22 @@ public class Simulation {
                         else if(DOG.equals(map[a][b])){
                             sasiad = sprawdz_sasiadow(a,b);
                             if("roslina gora".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a-1,b);
                             }
                             else if("roslina dol".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a+1,b);
                             }
                             else if("roslina lewo".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a,b-1);
                             }
                             else if("roslina prawo".equals(sasiad)){
-                                //metoda eat
+                                eat(a,b,a,b+1);
                             }
                             else if("kapibara gora".equals(sasiad) || "kapibara dol".equals(sasiad) || "kapibara lewo".equals(sasiad) || "kapibara prawo".equals(sasiad)){
                                 //metoda atack
                             }
                             else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
-                                // metoda move
+                               // move(a,b);
                             }
                         }
                     }
@@ -216,7 +216,7 @@ public class Simulation {
         return "NIE MOZNA SPRAWDZIC SASIEDA Z LEWEJ STRONY";
     }
     public String sprawdz_sasiadow_prawo(int x, int y){
-        if((y+1)<(rozmiar-1)) {
+        if((y+1)<=(rozmiar-1)) {
             if (TREE.equals(map[x][y + 1]) || BUSH.equals(map[x][y + 1])) return "roslina";
             else if (DOG.equals(map[x][y + 1])) return "pies";
             else if (CAPYBARA.equals(map[x][y + 1])) return "kapibara";
@@ -257,9 +257,219 @@ public class Simulation {
         return "COS ZEPSULO";
     }
 
-    public void eat()
-    {
-        
+    public void eat(int x, int y, int koordynataOX_roslina, int koordynataOY_roslina) {
+        //Zmiana zdrowia dla rosliny
+        for(Plants plant : plantsMap.values())
+        {
+            if(plant.koordynata_ox == koordynataOX_roslina && plant.koordynata_oy == koordynataOY_roslina)
+            {
+                //!!!!!!!!!!!!!!!!!!UUUUWAAGGGAAAAAAAAAAAAAAA TU TRZEBA ZMIENIC
+                plant.getDamage();
+                if (plant.hp <= 0) {
+                    licznik_zniszczonych_drzew++;
+                    //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
+                    Iterator<Map.Entry<Integer, Plants>> iterator = plantsMap.entrySet().iterator();
+                    while (iterator.hasNext()) {
+                        Map.Entry<Integer, Plants> entry = iterator.next();
+                        if (entry.getValue().equals(plant)) {
+                            iterator.remove();
+                        }
+                    }
+                    map[koordynataOX_roslina][koordynataOY_roslina] = ".";
+                }
+                break;
+            }
+        }
+        //Zmiana zdrowia dla kapibary
+        if(CAPYBARA.equals(map[x][y]))
+        {
+            for (Capybara kapibara : capybaraMap.values()) {
+                if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                    kapibara.eat(5);//5 - bo drzewo
+                    break;
+                }
+            }
+        }
+        //Zmiana zdrowia dla psa
+        else if(DOG.equals(map[x][y]))
+        {
+            for (Dog pies : dogMap.values()) {
+                if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
+                    pies.eat(3);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void move(int x, int y) {
+        Random random = new Random();
+        String[] kierunki = {"gora", "dol", "lewo", "prawo"};
+        String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+        if ("gora".equals(losowy_kierunek)) {
+            if (x - 1 > 0) {
+                if (EMPTY_FIELD.equals(map[x - 1][y])) {
+                    if (CAPYBARA.equals(map[x][y])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x-1][y] = CAPYBARA;
+                                kapibara.koordynata_ox = (x-1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                    else if (DOG.equals(map[x][y])) {
+                        for (Dog pies : dogMap.values()) {
+                            if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
+                                map[x-1][y] = DOG;
+                                pies.koordynata_ox = (x-1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"gora".equals(losowy_kierunek)) //not equals to gora
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"gora".equals(losowy_kierunek)){
+                        move(x,y);
+                    }
+                }
+            }
+        }
+        else if ("dol".equals(losowy_kierunek)) {
+            if (x + 1 < (rozmiar-1)) {
+                if (EMPTY_FIELD.equals(map[x+1][y])) {
+                    if (CAPYBARA.equals(map[x][y])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x+1][y] = CAPYBARA;
+                                kapibara.koordynata_ox = (x+1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                    else if (DOG.equals(map[x][y])) {
+                        for (Dog pies : dogMap.values()) {
+                            if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
+                                map[x+1][y] = DOG;
+                                pies.koordynata_ox = (x+1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"dol".equals(losowy_kierunek)) //not equals to dol
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"dol".equals(losowy_kierunek)){
+                        move(x,y);
+                    }
+                }
+            }
+        }
+        else if ("lewo".equals(losowy_kierunek)) {
+            if (y - 1 >= 0) {
+                if (EMPTY_FIELD.equals(map[x][y-1])) {
+                    if (CAPYBARA.equals(map[x][y])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x][y-1] = CAPYBARA;
+                                kapibara.koordynata_oy = (y-1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                    else if (DOG.equals(map[x][y])) {
+                        for (Dog pies : dogMap.values()) {
+                            if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
+                                map[x][y-1] = DOG;
+                                pies.koordynata_oy = (y-1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"lewo".equals(losowy_kierunek)) //not equals to dol
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"lewo".equals(losowy_kierunek)){
+                        move(x,y);
+                    }
+                }
+            }
+        }
+        else if ("prawo".equals(losowy_kierunek)) {
+            if (y + 1 <= (rozmiar-1)) {
+                if (EMPTY_FIELD.equals(map[x][y+1])) {
+                    if (CAPYBARA.equals(map[x][y])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x][y+1] = CAPYBARA;
+                                kapibara.koordynata_oy = (y+1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                    else if (DOG.equals(map[x][y])) {
+                        for (Dog pies : dogMap.values()) {
+                            if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
+                                map[x][y+1] = DOG;
+                                pies.koordynata_oy = (y+1);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"prawo".equals(losowy_kierunek)) //not equals to dol
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"prawo".equals(losowy_kierunek)){
+                        move(x,y);
+                    }
+                }
+            }
+        }
     }
     /*public int sprawdz_sasiadow(int x, int y){
         //0-nic

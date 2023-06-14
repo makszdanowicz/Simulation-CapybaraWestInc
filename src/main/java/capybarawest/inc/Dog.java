@@ -16,7 +16,7 @@ public class Dog extends Animal implements Attack{
     }
 
     @Override
-    public double getDamage() {
+    public double giveDamage() {
         return moc_ataku;
     }
 

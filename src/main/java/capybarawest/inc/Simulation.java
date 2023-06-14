@@ -106,7 +106,7 @@ public class Simulation {
                 y = (int)(Math.random() * rozmiar);
             } while (TREE.equals(map[x][y]) || BUSH.equals(map[x][y]) || CAPYBARA.equals(map[x][y]));
             map[x][y] = CAPYBARA;
-            Capybara kapibara = new Capybara(100, x, y, 3, 5);
+            Capybara kapibara = new Capybara(100, x, y);
             indeks_kapibar++;
             capybaraMap.put(indeks_kapibar, kapibara);
         }
@@ -126,7 +126,7 @@ public class Simulation {
                 y = (int)(Math.random() * rozmiar);
             } while (TREE.equals(map[x][y]) || BUSH.equals(map[x][y]) || CAPYBARA.equals(map[x][y]) || DOG.equals(map[x][y]));
             map[x][y] = DOG;
-            Dog pies = new Dog(100, x, y, 1, 5);
+            Dog pies = new Dog(100, x, y);
             indeks_psow++;
             dogMap.put(indeks_psow, pies);
         }
@@ -700,7 +700,7 @@ public class Simulation {
             System.out.println(" ");
         }
     }
-    
+
     public void wypisz_wyniki(){
         //Wypisanie elementow kolekcji treeMap
         System.out.println("Rosliny po symulacji:");

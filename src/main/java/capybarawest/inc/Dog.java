@@ -6,8 +6,8 @@ public class Dog extends Animal implements Attack{
         super();
     }
 
-    public Dog(double hp, int koordynata_ox, int koordynata_oy, int predkosc, int damage){
-        super(hp, koordynata_ox, koordynata_oy, predkosc, damage);
+    public Dog(double hp, int koordynata_ox, int koordynata_oy){
+        super(hp, koordynata_ox, koordynata_oy);
     }
 
     @Override

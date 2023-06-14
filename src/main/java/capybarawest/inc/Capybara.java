@@ -6,8 +6,8 @@ public class Capybara extends Animal{
        super();
     }
 
-    public Capybara(double hp, int koordynata_ox, int koordynata_oy, int predkosc, int damage) {
-        super(hp, koordynata_ox, koordynata_oy, predkosc, damage);
+    public Capybara(double hp, int koordynata_ox, int koordynata_oy) {
+        super(hp, koordynata_ox, koordynata_oy);
     }
 
     @Override

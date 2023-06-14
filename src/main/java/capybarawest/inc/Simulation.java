@@ -700,6 +700,7 @@ public class Simulation {
             System.out.println(" ");
         }
     }
+    
     public void wypisz_wyniki(){
         //Wypisanie elementow kolekcji treeMap
         System.out.println("Rosliny po symulacji:");

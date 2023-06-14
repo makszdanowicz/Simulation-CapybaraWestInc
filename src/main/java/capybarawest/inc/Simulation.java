@@ -676,7 +676,7 @@ public class Simulation {
             }
         }
     }
-    
+
     public void wyswietl_mape() {
         for (int i = 0; i < rozmiar; i++) {
             for (int j = 0; j < rozmiar; j++) {

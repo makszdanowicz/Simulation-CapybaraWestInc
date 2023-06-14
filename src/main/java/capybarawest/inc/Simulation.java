@@ -156,10 +156,11 @@ public class Simulation {
                                 eat(a,b,a,b+1);
                             }
                             else if("pies gora".equals(sasiad) || "pies dol".equals(sasiad) || "pies lewo".equals(sasiad) || "pies prawo".equals(sasiad)){
-                                //metoda uciekaj
+                                //uciekaj(to same co move, tylko sprawdza przez dwie klatki)
+                                uciekaj(a,b);
                             }
                             else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
-                                move(a,b);
+                                ruch(a,b);
                             }
                         }
                         else if(DOG.equals(map[a][b])){
@@ -189,7 +190,7 @@ public class Simulation {
                                 atakuj(a,b,a,b+1);
                             }
                             else if("nic gora".equals(sasiad) || "nic dol".equals(sasiad) || "nic lewo".equals(sasiad) || "nic prawo".equals(sasiad)){
-                               move(a,b);
+                               ruch(a,b);
                             }
                         }
                     }
@@ -332,7 +333,7 @@ public class Simulation {
         }
     }
 
-    public void move(int x, int y) {
+    public void ruch(int x, int y) {
         Random random = new Random();
         String[] kierunki = {"gora", "dol", "lewo", "prawo"};
         String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
@@ -374,7 +375,7 @@ public class Simulation {
 
                     }
                     if(!"gora".equals(losowy_kierunek)){
-                        move(x,y);
+                        ruch(x,y);
                     }
                 }
             }
@@ -417,7 +418,7 @@ public class Simulation {
 
                     }
                     if(!"dol".equals(losowy_kierunek)){
-                        move(x,y);
+                        ruch(x,y);
                     }
                 }
             }
@@ -460,7 +461,7 @@ public class Simulation {
 
                     }
                     if(!"lewo".equals(losowy_kierunek)){
-                        move(x,y);
+                        ruch(x,y);
                     }
                 }
             }
@@ -503,7 +504,7 @@ public class Simulation {
 
                     }
                     if(!"prawo".equals(losowy_kierunek)){
-                        move(x,y);
+                        ruch(x,y);
                     }
                 }
             }
@@ -537,9 +538,139 @@ public class Simulation {
                 //kapibara.getDamage(50);
                 if(kapibara.hp <= 0)
                 {
+                    Iterator<Map.Entry<Integer, Capybara>> iterator = capybaraMap.entrySet().iterator();
+                    while (iterator.hasNext()) {
+                        Map.Entry<Integer, Capybara> entry = iterator.next();
+                        if (entry.getValue().equals(kapibara)) {
+                            iterator.remove();
+                        }
+                    }
                     licznik_atakowanych_kapibar++;
+                    map[koordynata_ox_kapibary][koordynata_oy_kapibary] = ".";
                 }
                 break;
+            }
+        }
+    }
+
+    public void uciekaj(int x, int y) {
+        Random random = new Random();
+        String[] kierunki = {"gora", "dol", "lewo", "prawo"};
+        String losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+        if ("gora".equals(losowy_kierunek)) {
+            if (x - 2 > 0) {
+                if (EMPTY_FIELD.equals(map[x - 2][y])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x-2][y] = CAPYBARA;
+                                kapibara.move(x-2,y);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"gora".equals(losowy_kierunek)) //not equals to gora
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"gora".equals(losowy_kierunek)){
+                        uciekaj(x,y);
+                    }
+                }
+            }
+        }
+        else if ("dol".equals(losowy_kierunek)) {
+            if (x + 2 < (rozmiar-1)) {
+                if (EMPTY_FIELD.equals(map[x+2][y])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x+2][y] = CAPYBARA;
+                                kapibara.move(x+2,y);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"dol".equals(losowy_kierunek)) //not equals to dol
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"dol".equals(losowy_kierunek)){
+                        uciekaj(x,y);
+                    }
+                }
+            }
+        }
+        else if ("lewo".equals(losowy_kierunek)) {
+            if (y - 2 >= 0) {
+                if (EMPTY_FIELD.equals(map[x][y-2])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x][y-2] = CAPYBARA;
+                                kapibara.move(x,y-2);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"lewo".equals(losowy_kierunek)) //not equals to dol
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"lewo".equals(losowy_kierunek)){
+                        uciekaj(x,y);
+                    }
+                }
+            }
+        }
+        else if ("prawo".equals(losowy_kierunek)) {
+            if (y + 2 <= (rozmiar-1)) {
+                if (EMPTY_FIELD.equals(map[x][y+2])) {
+                        for (Capybara kapibara : capybaraMap.values()) {
+                            if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
+                                map[x][y+2] = CAPYBARA;
+                                kapibara.move(x,y+2);
+                                map[x][y] = EMPTY_FIELD;
+                                break;
+                            }
+                        }
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        losowy_kierunek = kierunki[random.nextInt(kierunki.length)];
+                        if(!"prawo".equals(losowy_kierunek)) //not equals to dol
+                        {
+                            break;
+                        }
+
+                    }
+                    if(!"prawo".equals(losowy_kierunek)){
+                        uciekaj(x,y);
+                    }
+                }
             }
         }
     }

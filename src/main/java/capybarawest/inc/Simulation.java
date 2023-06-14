@@ -738,7 +738,8 @@ public class Simulation {
     public void zapisz_do_pliku() throws FileNotFoundException {
         File plik = new File("wyniki.txt");
         PrintWriter writer = new PrintWriter("wyniki.txt");
-        writer.print(liczba_drzew + " " + licznik_zniszczonych_drzew + " " + liczba_krzakow + " " + licznik_zniszczonych_krzakow + " " + liczba_kapibar + " " + licznik_atakowanych_kapibar + " " + liczba_psow);
+        //writer.print((liczba_drzew+liczba_krzakow) + " " + (licznik_zniszczonych_drzew+licznik_zniszczonych_krzakow) + " " + (liczba_kapibar+liczba_psow));//2 graf
+        writer.print(liczba_drzew + " " + licznik_zniszczonych_drzew + " " + liczba_krzakow + " " + licznik_zniszczonych_krzakow + " " + liczba_kapibar + " " + licznik_atakowanych_kapibar + " " + liczba_psow);// 1graf
         writer.close();
     }
 }

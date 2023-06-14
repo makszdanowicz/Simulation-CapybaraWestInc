@@ -29,6 +29,6 @@ public class Main {
         symulacja.wyswietl_mape();
         symulacja.stworz_symulacje();
         symulacja.wyswietl_mape();
-        //symulacja.wypisz_wyniki();
+        symulacja.wypisz_wyniki();
     }
 }

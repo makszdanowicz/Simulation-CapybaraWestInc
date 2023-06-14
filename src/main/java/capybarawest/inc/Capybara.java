@@ -11,8 +11,8 @@ public class Capybara extends Animal{
     }
 
     @Override
-    public void move(String kierunek) {
-        super.move(kierunek);
+    public void move(int x, int y) {
+        super.move(x, y);
     }
 
     @Override

@@ -194,13 +194,9 @@ public class Simulation {
                         }
                     }
                 }
-                /*
-                if(!(CAPYBARA.equals(map[i][j]) || DOG.equals(map[i][j])))
-                {
-                    map[i][j] = WATER;
-                }
-                 */
+                powodz(i,j);
             }
+            System.out.println(" ");
         }
     }
     public String sprawdz_sasiadow_gora(int x, int y){
@@ -278,10 +274,23 @@ public class Simulation {
         {
             if(plant.koordynata_ox == koordynataOX_roslina && plant.koordynata_oy == koordynataOY_roslina)
             {
+                if(TREE.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                    plant.getDamage(5);
+                }
+                else if(BUSH.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                    plant.getDamage(3);
+                }
                 //!!!!!!!!!!!!!!!!!!UUUUWAAGGGAAAAAAAAAAAAAAA TU TRZEBA ZMIENIC
+                /*
                 plant.getDamage(5);
+                 */
                 if (plant.hp <= 0) {
-                    licznik_zniszczonych_drzew++;
+                    if(TREE.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                        licznik_zniszczonych_drzew++;
+                    }
+                    else if(BUSH.equals(map[koordynataOX_roslina][koordynataOY_roslina])){
+                        licznik_zniszczonych_krzakow++;
+                    }
                     //bezpieczne usuwanie elementow podczas iteracji bezposrednio przy pomocy iteratora
                     Iterator<Map.Entry<Integer, Plants>> iterator = plantsMap.entrySet().iterator();
                     while (iterator.hasNext()) {
@@ -338,7 +347,8 @@ public class Simulation {
                         for (Capybara kapibara : capybaraMap.values()) {
                             if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
                                 map[x-1][y] = CAPYBARA;
-                                kapibara.koordynata_ox = (x-1);
+                                kapibara.move(x-1,y);
+                                //kapibara.koordynata_ox = (x-1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -348,7 +358,8 @@ public class Simulation {
                         for (Dog pies : dogMap.values()) {
                             if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
                                 map[x-1][y] = DOG;
-                                pies.koordynata_ox = (x-1);
+                                pies.move(x-1,y);
+                                //pies.koordynata_ox = (x-1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -379,7 +390,8 @@ public class Simulation {
                         for (Capybara kapibara : capybaraMap.values()) {
                             if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
                                 map[x+1][y] = CAPYBARA;
-                                kapibara.koordynata_ox = (x+1);
+                                kapibara.move(x+1,y);
+                                //kapibara.koordynata_ox = (x+1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -389,7 +401,8 @@ public class Simulation {
                         for (Dog pies : dogMap.values()) {
                             if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
                                 map[x+1][y] = DOG;
-                                pies.koordynata_ox = (x+1);
+                                pies.move(x+1,y);
+                                //pies.koordynata_ox = (x+1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -420,7 +433,8 @@ public class Simulation {
                         for (Capybara kapibara : capybaraMap.values()) {
                             if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
                                 map[x][y-1] = CAPYBARA;
-                                kapibara.koordynata_oy = (y-1);
+                                kapibara.move(x,y-1);
+                                //kapibara.koordynata_oy = (y-1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -430,7 +444,8 @@ public class Simulation {
                         for (Dog pies : dogMap.values()) {
                             if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
                                 map[x][y-1] = DOG;
-                                pies.koordynata_oy = (y-1);
+                                pies.move(x,y-1);
+                                //pies.koordynata_oy = (y-1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -461,7 +476,8 @@ public class Simulation {
                         for (Capybara kapibara : capybaraMap.values()) {
                             if (kapibara.koordynata_ox == x && kapibara.koordynata_oy == y) {
                                 map[x][y+1] = CAPYBARA;
-                                kapibara.koordynata_oy = (y+1);
+                                kapibara.move(x,y+1);
+                                //kapibara.koordynata_oy = (y+1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -471,7 +487,8 @@ public class Simulation {
                         for (Dog pies : dogMap.values()) {
                             if (pies.koordynata_ox == x && pies.koordynata_oy == y) {
                                 map[x][y+1] = DOG;
-                                pies.koordynata_oy = (y+1);
+                                pies.move(x,y+1);
+                                //pies.koordynata_oy = (y+1);
                                 map[x][y] = EMPTY_FIELD;
                                 break;
                             }
@@ -493,6 +510,20 @@ public class Simulation {
                         move(x,y);
                     }
                 }
+            }
+        }
+    }
+    public void powodz(int x, int y){
+        if(!(CAPYBARA.equals(map[x][y]) || DOG.equals(map[x][y])))
+        {
+            map[x][y] = WATER;
+        }
+        else {
+            if(CAPYBARA.equals(map[x][y])){
+                map[x][y] = CAPYBARA;
+            }
+            else if(DOG.equals(map[x][y])){
+                map[x][y] = DOG;
             }
         }
     }

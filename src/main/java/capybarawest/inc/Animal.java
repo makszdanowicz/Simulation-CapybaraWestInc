@@ -29,7 +29,9 @@ public abstract class Animal implements IAnimal{
     }
 
     @Override
-    public void move(String kierunek) {
+    public void move(int x, int y) {
+        this.koordynata_ox = x;
+        this.koordynata_oy = y;
     }
     @Override
     public String toString() {

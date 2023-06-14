@@ -1,4 +1,7 @@
 package capybarawest.inc;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class Simulation {
@@ -699,24 +702,14 @@ public class Simulation {
     }
     public void wypisz_wyniki(){
         //Wypisanie elementow kolekcji treeMap
-        System.out.println("Drzewa po symulacji:");
-        /*for(Map.Entry<Integer, Tree> entry : treeMap.entrySet()){
-            Integer key = entry.getKey();
-            Tree value = entry.getValue();
-            System.out.println(key + ": " + value);
-        }
-
-         */
-
-        System.out.println("Krzaki po symulacji:");
-        /*for(Map.Entry<Integer, Bush> entry : bushMap.entrySet())
+        System.out.println("Rosliny po symulacji:");
+        for(Map.Entry<Integer, Plants> entry : plantsMap.entrySet())
         {
             Integer key = entry.getKey();
-            Bush value = entry.getValue();
-            System.out.println(key + ": " + value);
+            Plants value = entry.getValue();
+            System.out.println(key + ": " + value.getClass().getSimpleName() + " " +value);
         }
 
-         */
 
         System.out.println("Kapibary po symulacji:");
         for(Map.Entry<Integer, Capybara> entry : capybaraMap.entrySet())
@@ -740,6 +733,13 @@ public class Simulation {
         System.out.println(licznik_zniszczonych_krzakow);
         System.out.print("Liczba zaatakowanych kapibar: ");
         System.out.println(licznik_atakowanych_kapibar);
+    }
+
+    public void zapisz_do_pliku() throws FileNotFoundException {
+        File plik = new File("wyniki.txt");
+        PrintWriter writer = new PrintWriter("wyniki.txt");
+        writer.print(liczba_drzew + " " + licznik_zniszczonych_drzew + " " + liczba_krzakow + " " + licznik_zniszczonych_krzakow + " " + liczba_kapibar + " " + licznik_atakowanych_kapibar + " " + liczba_psow);
+        writer.close();
     }
 }
 

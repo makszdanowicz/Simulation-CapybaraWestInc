@@ -1,9 +1,10 @@
 package capybarawest.inc;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         int rozmiar;
         int liczba_drzew;
         int liczba_krzakow;
@@ -29,5 +30,6 @@ public class Main {
         symulacja.wyswietl_mape();
         symulacja.stworz_symulacje();
         symulacja.wypisz_wyniki();
+        symulacja.zapisz_do_pliku();
     }
 }
